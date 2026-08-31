@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01k -->
+<!-- BUILD_TAG: 2026-09-01l -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -708,11 +708,43 @@ body.nav-open{overflow:hidden}
 .reason p{font-size:15px;color:var(--muted);line-height:1.95}
 
 /* ---------- お約束 ---------- */
-.assure{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.assure__item{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);padding:34px 30px 36px}
-.assure__n{font-family:"Shippori Mincho",serif;font-size:30px;color:var(--gold-ink);line-height:1;display:block;margin-bottom:18px}
-.assure h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.6}
+.head-flank{display:flex;align-items:center;gap:28px;margin-bottom:18px}
+.head-flank::before,.head-flank::after{content:"";flex:1;height:1px;background:var(--line)}
+.head-flank h2{white-space:nowrap}
+
+.assure{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;align-items:stretch;margin-top:46px}
+.assure__item{
+  position:relative;background:#fff;border:1px solid var(--line);
+  padding:62px 30px 40px;text-align:center;
+}
+.assure__n{
+  position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
+  width:66px;height:66px;display:grid;place-items:center;
+}
+.assure__n svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--navy)}
+.assure__n b{position:relative;font-size:24px;font-weight:700;color:#fff;letter-spacing:.02em}
+.assure__ico{position:relative;width:112px;height:112px;margin:0 auto 26px;display:grid;place-items:center}
+.assure__ico > svg:first-child{position:absolute;inset:0;width:100%;height:100%;fill:#EAF1F8}
+.assure__ico > svg:last-child{
+  position:relative;width:52px;height:52px;fill:none;stroke:var(--blue);
+  stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;
+}
+.assure h3{font-size:clamp(17px,1.7vw,20px);font-weight:700;color:var(--navy);line-height:1.6}
+.assure__rule{display:block;width:44px;height:2px;background:var(--blue);margin:16px auto 20px}
 .assure p{font-size:14.5px;color:var(--muted);line-height:1.95}
+.assure__chev{
+  align-self:center;justify-self:center;width:14px;height:26px;background:var(--blue);
+  clip-path:polygon(0 0,42% 0,100% 50%,42% 100%,0 100%,58% 50%);
+}
+.assure-note{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  background:#EAF1F8;padding:22px 26px;margin-top:34px;
+  font-size:clamp(14.5px,1.6vw,16.5px);color:var(--navy);line-height:1.8;text-align:center;
+}
+.assure-note__ico{flex:0 0 auto;width:26px;height:26px}
+.assure-note__ico svg{width:100%;height:100%}
+.assure-note__ico circle{fill:var(--blue)}
+.assure-note__ico path{fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- 追従の導線 ---------- */
 .side-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;display:grid}
@@ -743,7 +775,10 @@ body.nav-open{overflow:hidden}
 }
 @media (max-width:900px){
   .trust__grid{grid-template-columns:repeat(2,1fr)}
-  .assure{grid-template-columns:1fr;gap:18px}
+  .assure{grid-template-columns:1fr;gap:0}
+  .assure__chev{width:26px;height:14px;margin:20px 0;clip-path:polygon(0 0,0 42%,50% 100%,100% 42%,100% 0,50% 58%)}
+  .head-flank{gap:18px}
+  .head-flank h2{white-space:normal}
   .reason{grid-template-columns:70px 1fr;gap:18px;padding:28px 26px}
   .icta{grid-template-columns:1fr;gap:24px}
   .ft__top{grid-template-columns:1fr;gap:36px;padding-bottom:34px}
@@ -784,6 +819,8 @@ body.nav-open{overflow:hidden}
   }
   .cmp__ai::before{color:var(--gold-ink) !important}
   .cmp-note{flex-direction:column;gap:12px;padding:20px}
+  .assure-note{flex-direction:column;gap:12px;padding:20px}
+  .assure__item{padding:56px 24px 34px}
   .gr__cards{grid-template-columns:1fr;gap:0}
   .gr__arrow{width:34px;height:52px;margin:22px 0;clip-path:polygon(28% 0,72% 0,72% 58%,100% 58%,50% 100%,0 58%,28% 58%)}
   .gr__mult{width:96px;height:96px;top:-22px;right:-10px}
@@ -1304,26 +1341,38 @@ body.nav-open{overflow:hidden}
   <section class="sec obs" id="assure">
     <div class="wrap">
       <div class="sec__head sec__head--center">
-        <h2 class="chars">個人への依頼だからこそ、進め方を曖昧にしません。</h2>
+        <div class="head-flank"><h2 class="chars">ご依頼にあたってのお約束</h2></div>
         <span class="head__rule" aria-hidden="true"></span>
         <p class="sec__lead">ご契約前に、対応範囲・納期・費用・修正条件を書面で明確にします。制作中は工程ごとに内容をご確認いただき、承認後に次へ進みます。</p>
       </div>
       <div class="assure stg">
         <div class="assure__item">
-          <span class="assure__n">01</span>
+          <span class="assure__n" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50"/></svg><b>01</b></span>
+          <span class="assure__ico" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50"/></svg><svg viewBox="0 0 24 24"><path d="M13 3.5H6.5v17h11V8z"/><path d="M13 3.5V8h4.5"/><path d="M9 9h2.5M9 12h6M9 15h4"/><circle cx="16.5" cy="16.5" r="3.4"/><path d="M19 19l2.5 2.5"/></svg></span>
           <h3>見積の内訳を明確にする</h3>
-          <p>何に、なぜ費用がかかるのかを説明します。不要だと判断した施策は見積に含めません。</p>
+          <span class="assure__rule" aria-hidden="true"></span>
+          <p>何に、なぜ費用がかかるのかを説明します。<br>不要だと判断した施策は見積に含めません。</p>
         </div>
+        <span class="assure__chev" aria-hidden="true"></span>
         <div class="assure__item">
-          <span class="assure__n">02</span>
+          <span class="assure__n" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50"/></svg><b>02</b></span>
+          <span class="assure__ico" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50"/></svg><svg viewBox="0 0 24 24"><path d="M13 3.5H6.5v17h7"/><path d="M13 3.5V8h4.5V11"/><path d="M9 9h2.5M9 12h5M9 15h3"/><path d="M15 19.6l5.4-5.4a1.7 1.7 0 012.4 2.4l-5.4 5.4-3 .6z"/></svg></span>
           <h3>対応範囲を書面で決める</h3>
-          <p>作業範囲、納期、修正の条件を着手前に文書化します。後から範囲が曖昧になることを防ぎます。</p>
+          <span class="assure__rule" aria-hidden="true"></span>
+          <p>作業範囲、納期、修正の条件を着手前に文書化します。<br>後から範囲が曖昧になることを防ぎます。</p>
         </div>
+        <span class="assure__chev" aria-hidden="true"></span>
         <div class="assure__item">
-          <span class="assure__n">03</span>
+          <span class="assure__n" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50"/></svg><b>03</b></span>
+          <span class="assure__ico" aria-hidden="true"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="50"/></svg><svg viewBox="0 0 24 24"><circle cx="8.5" cy="8" r="3.4"/><path d="M2.5 20.5c0-3.3 2.7-5.6 6-5.6s6 2.3 6 5.6"/><path d="M13.5 3h8v6.4h-4.6L14 12V9.4h-.5z"/><path d="M16 6.2h.01M18 6.2h.01M20 6.2h.01"/></svg></span>
           <h3>公開後の窓口を残す</h3>
-          <p>公開して終わりにせず、更新方法の共有と、その後の相談先としての窓口を維持します。</p>
+          <span class="assure__rule" aria-hidden="true"></span>
+          <p>公開して終わりにせず、更新方法の共有と、<br>その後の相談先としての窓口を維持します。</p>
         </div>
+      </div>
+      <div class="assure-note">
+        <span class="assure-note__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7.4 12.3l3.1 3.1 6.1-6.6"/></svg></span>
+        <p>ご相談から公開後まで、透明性の高いプロセスで安心してご依頼いただける体制を整えています。</p>
       </div>
     </div>
   </section>
@@ -1636,7 +1685,7 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01k</span>
+      <span>BUILD_TAG: 2026-09-01l</span>
     </div>
   </div>
 </footer>
@@ -1662,7 +1711,7 @@ body.nav-open{overflow:hidden}
 </div>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01k");
+console.log("BUILD_TAG: 2026-09-01l");
 
 (function(){
   "use strict";
