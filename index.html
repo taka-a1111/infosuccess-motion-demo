@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31d -->
+<!-- BUILD_TAG: 2026-08-31e -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>モーション検証用デモ | インフォサクセス</title>
@@ -72,25 +72,63 @@ ul,ol{list-style:none}
   display:inline-block;position:relative;overflow:hidden;
   padding:16px 34px;min-width:210px;text-align:center;
   border:1px solid var(--navy);background:var(--navy);color:#fff;
-  font-size:15px;font-weight:500;letter-spacing:.04em;line-height:1.4;
+  font-size:15px;font-weight:500;letter-spacing:.04em;
 }
 .btn--ghost{background:transparent;color:var(--navy)}
-.btn__t{display:block;transition:transform .45s var(--ease)}
-.btn__t--under{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  transform:translateY(100%);
-}
-.btn:hover .btn__t--top{transform:translateY(-100%)}
-.btn:hover .btn__t--under{transform:translateY(0)}
+.btn__box{position:relative;display:block;overflow:hidden;height:1.5em}
+.btn__t{display:block;line-height:1.5;transition:transform .45s var(--ease)}
+.btn__t--under{position:absolute;inset:0;transform:translateY(100%)}
+.btn:hover .btn__t--top,.btn:focus-visible .btn__t--top,
+.form__submit:hover .btn__t--top,.form__submit:focus-visible .btn__t--top{transform:translateY(-100%)}
+.btn:hover .btn__t--under,.btn:focus-visible .btn__t--under,
+.form__submit:hover .btn__t--under,.form__submit:focus-visible .btn__t--under{transform:translateY(0)}
 .btn--ghost:hover{background:var(--navy);color:#fff;transition:background .45s var(--ease),color .45s var(--ease)}
 .btns{display:flex;flex-wrap:wrap;gap:14px}
 
 /* ---------- hero（意図的にアニメーションなし） ---------- */
-.hero{padding:190px 0 130px;border-bottom:1px solid var(--line)}
+.hero{padding:170px 0 110px;border-bottom:1px solid var(--line)}
+.hero__grid{display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:start}
 .hero h1{
-  font-size:clamp(30px,5.2vw,58px);font-weight:700;line-height:1.42;
-  letter-spacing:.01em;color:var(--navy);max-width:19em;
+  font-size:clamp(28px,4.4vw,50px);font-weight:700;line-height:1.42;
+  letter-spacing:.01em;color:var(--navy);max-width:17em;
 }
+
+/* ---------- お問い合わせフォーム ---------- */
+.form{border:1px solid var(--navy);background:#fff;padding:32px 30px 34px}
+.form__head{padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.form__title{font-size:18px;font-weight:700;color:var(--navy);line-height:1.5}
+.form__note{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.7}
+.field{margin-bottom:16px}
+.field__label{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.field__req{font-size:11px;font-weight:500;color:#fff;background:var(--blue);padding:2px 7px;letter-spacing:.06em}
+.field__opt{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:1px 6px}
+.form input,.form select,.form textarea{
+  width:100%;font-family:inherit;font-size:15px;line-height:1.6;color:var(--text);
+  background:#fff;border:1px solid var(--line);padding:11px 13px;
+  transition:border-color .25s var(--ease);
+}
+.form textarea{resize:vertical;min-height:96px}
+.form select{
+  appearance:none;-webkit-appearance:none;padding-right:36px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M0 0h11L5.5 7z' fill='%2300243F'/%3E%3C/svg%3E");
+  background-position:right 14px center;background-repeat:no-repeat;
+}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--blue)}
+.form input:user-invalid,.form textarea:user-invalid{border-color:#B3352E}
+.form__submit{
+  width:100%;margin-top:6px;border:1px solid var(--navy);background:var(--navy);color:#fff;
+  font-family:inherit;font-size:15px;font-weight:500;letter-spacing:.04em;
+  padding:15px 20px;cursor:pointer;position:relative;overflow:hidden;
+}
+.form__privacy{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.7}
+.form__privacy a{color:var(--blue);text-decoration:underline}
+.form__done{
+  border:1px solid var(--blue);background:var(--pale);padding:26px 24px;
+  font-size:15px;color:var(--navy);line-height:1.8;
+}
+.form__done b{display:block;font-size:17px;margin-bottom:8px}
+.form__done small{display:block;margin-top:12px;font-size:12px;color:var(--muted)}
+[hidden]{display:none !important}
 .hero__rule{width:64px;height:3px;background:var(--gold);margin:34px 0 26px}
 .hero p{max-width:44em;color:var(--muted);font-size:16px;margin-bottom:40px}
 .hero__meta{
@@ -215,6 +253,7 @@ ul,ol{list-style:none}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr;gap:44px}
   .issues{grid-template-columns:repeat(2,1fr)}
   .plans{grid-template-columns:1fr}
   .sv{grid-template-columns:1fr;gap:26px}
@@ -264,25 +303,78 @@ ul,ol{list-style:none}
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero">
     <div class="wrap">
-      <h1>制作会社とSEO会社を、<br>行き来しなくていい。</h1>
-      <div class="hero__rule"></div>
-      <p>見た目を変えても問い合わせは増えません。制作・SEO・AI検索対策・地図検索までを窓口ひとつで引き受け、公開したあとの運用まで同じ担当が見ます。</p>
-      <div class="btns">
-        <a href="#plan" class="btn">
-          <span class="btn__t btn__t--top">料金を見る</span>
-          <span class="btn__t btn__t--under">料金を見る</span>
-        </a>
-        <a href="#cta" class="btn btn--ghost">
-          <span class="btn__t btn__t--top">制作を相談する</span>
-          <span class="btn__t btn__t--under">制作を相談する</span>
-        </a>
-      </div>
-      <div class="hero__meta">
-        <span>ホームページ制作</span>
-        <span>SEO</span>
-        <span>AI検索最適化</span>
-        <span>地図検索・MEO</span>
-        <span>オンラインで全国対応</span>
+      <div class="hero__grid">
+        <div class="hero__body">
+          <h1>制作会社とSEO会社を、<br>行き来しなくていい。</h1>
+          <div class="hero__rule"></div>
+          <p>見た目を変えても問い合わせは増えません。制作・SEO・AI検索対策・地図検索までを窓口ひとつで引き受け、公開したあとの運用まで同じ担当が見ます。</p>
+          <div class="btns">
+            <a href="#plan" class="btn">
+              <span class="btn__box"><span class="btn__t btn__t--top">料金を見る</span>
+              <span class="btn__t btn__t--under">料金を見る</span></span>
+            </a>
+            <a href="#service" class="btn btn--ghost">
+              <span class="btn__box"><span class="btn__t btn__t--top">サービスを見る</span>
+              <span class="btn__t btn__t--under">サービスを見る</span></span>
+            </a>
+          </div>
+          <div class="hero__meta">
+            <span>ホームページ制作</span>
+            <span>SEO</span>
+            <span>AI検索最適化</span>
+            <span>地図検索・MEO</span>
+            <span>オンラインで全国対応</span>
+          </div>
+        </div>
+
+        <div class="form">
+          <div class="form__head">
+            <p class="form__title">無料相談・お見積り</p>
+            <p class="form__note">現状のサイトのどこに手を入れるべきかだけでも、お答えします。着手前のご相談に費用はかかりません。</p>
+          </div>
+
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label class="field__label" for="f-company">会社名・屋号<span class="field__opt">任意</span></label>
+              <input type="text" id="f-company" name="company" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-name">お名前<span class="field__req">必須</span></label>
+              <input type="text" id="f-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-email">メールアドレス<span class="field__req">必須</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" inputmode="email">
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-topic">ご相談の内容<span class="field__req">必須</span></label>
+              <select id="f-topic" name="topic" required>
+                <option value="">選択してください</option>
+                <option>ホームページの新規制作</option>
+                <option>既存サイトのリニューアル</option>
+                <option>SEO</option>
+                <option>AI検索最適化</option>
+                <option>地図検索・MEO</option>
+                <option>その他・まだ決まっていない</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-body">ご相談内容<span class="field__opt">任意</span></label>
+              <textarea id="f-body" name="body" placeholder="現在のサイトのURL、お困りの点、ご希望の時期など"></textarea>
+            </div>
+            <button type="submit" class="form__submit">
+              <span class="btn__box"><span class="btn__t btn__t--top">送信する</span>
+              <span class="btn__t btn__t--under">送信する</span></span>
+            </button>
+            <p class="form__privacy">送信いただいた内容は、ご相談への回答にのみ使用します。詳しくは<a href="#">プライバシーポリシー</a>をご確認ください。</p>
+          </form>
+
+          <div class="form__done" id="formDone" hidden>
+            <b>送信が完了しました</b>
+            2営業日以内にご返信します。返信が届かない場合は、迷惑メールフォルダをご確認ください。
+            <small>※ これは動作確認用のデモです。実際には送信されていません。</small>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -447,12 +539,12 @@ ul,ol{list-style:none}
       <p>今のサイトのどこに手を入れるべきかだけでも、お伝えできます。</p>
       <div class="btns">
         <a href="#" class="btn">
-          <span class="btn__t btn__t--top">相談する</span>
-          <span class="btn__t btn__t--under">相談する</span>
+          <span class="btn__box"><span class="btn__t btn__t--top">相談する</span>
+          <span class="btn__t btn__t--under">相談する</span></span>
         </a>
         <a href="#" class="btn btn--ghost">
-          <span class="btn__t btn__t--top">料金表を見る</span>
-          <span class="btn__t btn__t--under">料金表を見る</span>
+          <span class="btn__box"><span class="btn__t btn__t--top">料金表を見る</span>
+          <span class="btn__t btn__t--under">料金表を見る</span></span>
         </a>
       </div>
     </div>
@@ -464,12 +556,12 @@ ul,ol{list-style:none}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31d</span>
+    <span class="tag">BUILD_TAG: 2026-08-31e</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31d");
+console.log("BUILD_TAG: 2026-08-31e");
 
 (function(){
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -524,6 +616,20 @@ console.log("BUILD_TAG: 2026-08-31d");
       ticking = false;
     });
   }, { passive: true });
+
+  /* フォーム送信（デモのため実際には送信しない） */
+  var form = document.getElementById("contactForm");
+  var done = document.getElementById("formDone");
+  if (form) {
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      form.hidden = true;
+      done.hidden = false;
+      done.setAttribute("tabindex","-1");
+      done.focus();
+    });
+  }
 
   /* 検証用：もう一度先頭から再生する */
   document.getElementById("replay").addEventListener("click", function(){
