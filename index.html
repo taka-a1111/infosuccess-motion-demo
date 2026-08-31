@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01j -->
+<!-- BUILD_TAG: 2026-09-01k -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -773,11 +773,16 @@ body.nav-open{overflow:hidden}
   .sp-cta a:first-child{background:var(--pale);color:var(--navy)}
   .sp-cta a:last-child{background:var(--navy);color:#fff}
   .ft{padding:52px 0 92px}
-  .cmp__head{grid-template-columns:1fr 1fr;}
-  .cmp__head span:first-child{display:none}
-  .cmp__row{grid-template-columns:1fr}
-  .cmp__row > *{padding:14px 18px}
-  .cmp__row > *:not(.cmp__k){border-top:1px solid var(--line)}
+  .cmp__head{display:none}
+  .cmp{border-bottom:0}
+  .cmp__row{grid-template-columns:1fr;border-top:0;border-bottom:1px solid var(--line)}
+  .cmp__k{padding:15px 18px;font-size:15.5px}
+  .cmp__row > *:not(.cmp__k){padding:14px 18px 16px;font-size:15px}
+  .cmp__row > *:not(.cmp__k)::before{
+    content:attr(data-l);display:block;margin-bottom:6px;
+    font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#7C8996;
+  }
+  .cmp__ai::before{color:var(--gold-ink) !important}
   .cmp-note{flex-direction:column;gap:12px;padding:20px}
   .gr__cards{grid-template-columns:1fr;gap:0}
   .gr__arrow{width:34px;height:52px;margin:22px 0;clip-path:polygon(28% 0,72% 0,72% 58%,100% 58%,50% 100%,0 58%,28% 58%)}
@@ -1050,23 +1055,23 @@ body.nav-open{overflow:hidden}
           </div>
         <div class="cmp__row">
           <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.6"/><path d="M15.4 15.4L21 21"/></svg>返ってくるもの</div>
-          <div>複数の候補ページ</div>
-          <div class="cmp__ai">要点がまとまった回答</div>
+          <div data-l="GOOGLE検索">複数の候補ページ</div>
+          <div class="cmp__ai" data-l="AI検索">要点がまとまった回答</div>
         </div>
         <div class="cmp__row">
           <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.6"/><path d="M4.5 20.5c0-3.7 3.4-6.2 7.5-6.2s7.5 2.5 7.5 6.2"/></svg>誰が選ぶか</div>
-          <div>ユーザーが自分で選んで読む</div>
-          <div class="cmp__ai">AIが参照先を選んで要約する</div>
+          <div data-l="GOOGLE検索">ユーザーが自分で選んで読む</div>
+          <div class="cmp__ai" data-l="AI検索">AIが参照先を選んで要約する</div>
         </div>
         <div class="cmp__row">
           <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5h18"/><rect x="5" y="12" width="3.4" height="6.5"/><rect x="10.3" y="8" width="3.4" height="10.5"/><rect x="15.6" y="14" width="3.4" height="4.5"/></svg>何が評価されるか</div>
-          <div>上位表示されるか・クリックされるか</div>
-          <div class="cmp__ai">回答の中で引用・参照されるか</div>
+          <div data-l="GOOGLE検索">上位表示されるか・クリックされるか</div>
+          <div class="cmp__ai" data-l="AI検索">回答の中で引用・参照されるか</div>
         </div>
         <div class="cmp__row">
           <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l8 3.2v6c0 5-3.4 8.7-8 9.8-4.6-1.1-8-4.8-8-9.8v-6z"/><path d="M8.8 12l2.2 2.2 4.2-4.6"/></svg>必要な対策</div>
-          <div>SEO</div>
-          <div class="cmp__ai">AIO・LLMO</div>
+          <div data-l="GOOGLE検索">SEO</div>
+          <div class="cmp__ai" data-l="AI検索">AIO・LLMO</div>
         </div>
         </div>
         <div class="cmp-note">
@@ -1631,7 +1636,7 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01j</span>
+      <span>BUILD_TAG: 2026-09-01k</span>
     </div>
   </div>
 </footer>
@@ -1657,7 +1662,7 @@ body.nav-open{overflow:hidden}
 </div>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01j");
+console.log("BUILD_TAG: 2026-09-01k");
 
 (function(){
   "use strict";
