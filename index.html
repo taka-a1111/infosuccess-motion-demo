@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01a -->
+<!-- BUILD_TAG: 2026-09-01b -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -490,10 +490,10 @@ body.nav-open{overflow:hidden}
 .ft__logo .m-arrow{fill:var(--pale)}
 .ft__ja{font-size:21px;font-weight:700;letter-spacing:.10em;color:#fff}
 .ft__en{font-family:"Archivo",sans-serif;font-size:11px;font-weight:600;letter-spacing:.26em;color:var(--gold)}
-.ft__tag{font-size:13px;color:#B9C7D3;line-height:1.9}
+.ft__tag{font-size:13px;color:#B9C7D3;line-height:1.9;max-width:26em;overflow-wrap:anywhere}
 .ft__nav{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 24px;align-content:start}
 .ft__nav a{
-  position:relative;font-size:14px;color:#fff;padding:5px 0 5px 15px;
+  position:relative;font-size:14px;color:#fff;padding:5px 0 5px 15px;overflow-wrap:anywhere;
   transition:color .3s var(--ease);
 }
 .ft__nav a::before{
@@ -521,6 +521,8 @@ body.nav-open{overflow:hidden}
   .burger{display:block}
 }
 @media (max-width:900px){
+  .ft__top{grid-template-columns:1fr;gap:36px;padding-bottom:34px}
+  .ft__nav{grid-template-columns:repeat(3,1fr)}
   .works{grid-template-columns:repeat(2,1fr);gap:20px}
   .profile{grid-template-columns:1fr;gap:36px}
   .contact__grid{grid-template-columns:1fr;gap:40px}
@@ -533,7 +535,13 @@ body.nav-open{overflow:hidden}
 @media (max-width:768px){
   body{font-size:15px}
   .ft{padding:52px 0 26px}
-  .ft__nav{grid-template-columns:repeat(2,1fr)}
+  .ft__nav{grid-template-columns:repeat(2,1fr);gap:6px 20px}
+  .ft__logo .logo__mark{width:30px;height:40px}
+  .ft__ja{font-size:18px}
+  .ft__en{font-size:9.5px;letter-spacing:.22em}
+  .ft__legal{gap:10px 22px;padding:22px 0}
+  .ft__bottom{flex-direction:column;align-items:flex-start;gap:14px}
+  .replay{width:100%;text-align:center}
   :root{--hd-h:72px}
   .logo__mark{width:29px;height:39px}
   .logo__ja{font-size:18px}
@@ -1102,7 +1110,7 @@ body.nav-open{overflow:hidden}
             <span class="ft__en">INFOSUCCESS</span>
           </span>
         </div>
-        <p class="ft__tag">ホームページ制作 / SEO・記事制作 /<br>AI検索対策（AIO・LLMO）/ 地図検索・MEO</p>
+        <p class="ft__tag">ホームページ制作 ／ SEO・記事制作 ／ AI検索対策（AIO・LLMO）／ 地図検索・MEO</p>
       </div>
       <nav class="ft__nav" aria-label="フッターメニュー">
         <a href="#service">サービス</a>
@@ -1125,13 +1133,13 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01a</span>
+      <span>BUILD_TAG: 2026-09-01b</span>
     </div>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01a");
+console.log("BUILD_TAG: 2026-09-01b");
 
 (function(){
   "use strict";
