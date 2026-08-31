@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01d -->
+<!-- BUILD_TAG: 2026-09-01e -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -419,7 +419,8 @@ body.nav-open{overflow:hidden}
 .work p{font-size:14.5px;color:var(--muted);line-height:2}
 
 /* ---------- 運営者 ---------- */
-.profile{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.profile__head{margin-bottom:66px}
+.profile{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:start}
 .profile__h{
   font-family:"Shippori Mincho",serif;font-weight:600;
   font-size:clamp(29px,3.8vw,46px);color:var(--navy);
@@ -427,13 +428,15 @@ body.nav-open{overflow:hidden}
 }
 .profile__rule{
   display:block;position:relative;height:1px;background:var(--gold-ink);
-  width:min(420px,100%);margin:30px 0 42px;
+  width:min(680px,100%);margin:28px 0 26px;
 }
 .profile__rule::before{
   content:"";position:absolute;left:0;top:-4.5px;width:10px;height:10px;
   background:var(--gold-ink);transform:rotate(45deg);
 }
-.profile__name{border-left:2px solid var(--gold-ink);padding-left:24px;margin-bottom:36px}
+.profile__lead{font-size:15.5px;color:var(--muted);line-height:1.9}
+.profile__name{border-left:2px solid var(--gold-ink);padding-left:26px}
+.profile__sep{display:block;width:118px;height:1px;background:var(--gold-ink);opacity:.55;margin:28px 0 32px}
 .profile__name h3{
   font-family:"Shippori Mincho",serif;font-weight:600;
   font-size:clamp(31px,3.2vw,42px);color:var(--navy);
@@ -443,10 +446,10 @@ body.nav-open{overflow:hidden}
 .profile p{color:var(--muted);line-height:2.1;margin-bottom:24px}
 .profile p:last-child{margin-bottom:0}
 
-.pf-list{background:var(--pale);border-bottom:3px solid var(--navy);padding:6px 34px}
+.pf-list{background:#fff;border:1px solid var(--navy);padding:8px 36px}
 .pf-list div{
   display:grid;grid-template-columns:172px 1fr;gap:20px;align-items:center;
-  padding:24px 0;border-bottom:1px solid #D2DCE5;
+  padding:26px 0;border-bottom:1px solid #E2D6BF;
 }
 .pf-list div:last-child{border-bottom:0}
 .pf-list dt{display:flex;align-items:center;gap:18px;font-size:16px;font-weight:700;color:var(--navy)}
@@ -455,7 +458,7 @@ body.nav-open{overflow:hidden}
   width:100%;height:100%;fill:none;stroke:var(--blue);
   stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
 }
-.pf-list dd{position:relative;padding-left:22px;font-size:15px;color:var(--text);line-height:1.85}
+.pf-list dd{position:relative;padding-left:24px;font-size:15px;color:var(--navy);line-height:1.85}
 .pf-list dd::before{content:"";position:absolute;left:0;top:.2em;bottom:.2em;width:1px;background:var(--gold-ink)}
 
 /* ---------- お問い合わせ ---------- */
@@ -1041,14 +1044,18 @@ body.nav-open{overflow:hidden}
   <!-- PROFILE -->
   <section class="sec obs" id="profile">
     <div class="wrap">
+      <div class="profile__head">
+        <h2 class="chars profile__h">運営者について</h2>
+        <span class="profile__rule" aria-hidden="true"></span>
+        <p class="profile__lead">当サイトを運営するインフォサクセスの代表者についてご紹介します。</p>
+      </div>
       <div class="profile">
         <div class="profile__main">
-          <h2 class="chars profile__h">運営者について</h2>
-          <span class="profile__rule" aria-hidden="true"></span>
           <div class="profile__name">
             <h3>高崎</h3>
             <p class="profile__role">インフォサクセス 代表 / Webディレクター</p>
           </div>
+          <span class="profile__sep" aria-hidden="true"></span>
           <p>もともとはメーカーでソフトウェア開発に携わっていました。仕様を決め、検証し、数字で確かめる。その進め方は、当時に身についたものです。2011年に個人でメディアを立ち上げたことをきっかけに、Webの世界へ移りました。</p>
           <p>技術の側から入っているので、「なんとなく良さそう」ではなく、数字と構造で説明することを大事にしています。作って終わりにせず、公開後にどう育てるかまで一緒に考える相手を探している方に向いていると思います。</p>
         </div>
@@ -1184,13 +1191,13 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01d</span>
+      <span>BUILD_TAG: 2026-09-01e</span>
     </div>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01d");
+console.log("BUILD_TAG: 2026-09-01e");
 
 (function(){
   "use strict";
