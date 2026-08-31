@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01e -->
+<!-- BUILD_TAG: 2026-09-01f -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -287,6 +287,12 @@ body.nav-open{overflow:hidden}
 }
 .sec__head--center .sec__lead{margin:0 auto;max-width:40em}
 .head__rule{display:block;width:64px;height:2px;background:var(--gold-ink);margin:24px auto 22px}
+.head__rule--orn{position:relative;width:min(300px,80%);height:1px;background:var(--gold);opacity:.6}
+.head__rule--orn::before{
+  content:"";position:absolute;left:50%;top:-4px;width:9px;height:9px;
+  background:var(--gold);transform:translateX(-50%) rotate(45deg);
+}
+.sec--navy .sec__head--center h2{color:#fff}
 
 .deco{position:absolute;top:0;pointer-events:none;z-index:0}
 .deco--l{left:0;width:min(250px,22vw);height:min(200px,18vw);background:var(--navy);clip-path:polygon(0 0,100% 0,0 100%)}
@@ -335,14 +341,43 @@ body.nav-open{overflow:hidden}
 .sv p{color:var(--muted);font-size:15px}
 
 /* ---------- フロー ---------- */
-.flow{border-top:1px solid rgba(255,255,255,.22)}
-.flow li{
-  display:grid;grid-template-columns:112px 1fr;gap:36px;
-  padding:34px 0;border-bottom:1px solid rgba(255,255,255,.22);
+.flow{position:relative;display:grid;gap:30px}
+.flow__item{position:relative;width:58%;z-index:1}
+.flow__item:nth-child(even){margin-left:auto}
+
+.flow__card{--cut:26px;background:var(--gold-ink);padding:1px}
+.flow__item:nth-child(odd) .flow__card,
+.flow__item:nth-child(odd) .flow__inner{
+  clip-path:polygon(var(--cut) 0,100% 0,100% calc(100% - var(--cut)),calc(100% - var(--cut)) 100%,0 100%,0 var(--cut));
 }
-.flow__no{font-family:"Archivo",sans-serif;font-size:15px;color:var(--gold);letter-spacing:.1em;padding-top:4px}
-.flow h3{font-size:19px;font-weight:700;margin-bottom:10px;color:#fff}
-.flow p{color:#B9C7D3;font-size:15px}
+.flow__item:nth-child(even) .flow__card,
+.flow__item:nth-child(even) .flow__inner{
+  clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)));
+}
+.flow__inner{
+  --cut:26px;background:#062A48;
+  display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+  padding:32px 36px;min-height:158px;
+}
+
+.flow__badge{position:relative;flex:0 0 auto;width:94px;height:94px;display:grid;place-items:center}
+.flow__badge svg{position:absolute;inset:0;width:100%;height:100%;stroke:var(--gold);fill:none}
+.flow__badge-in{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px}
+.flow__badge-t{font-family:"Shippori Mincho",serif;font-size:12.5px;letter-spacing:.16em;color:var(--gold);line-height:1}
+.flow__badge-n{font-family:"Shippori Mincho",serif;font-size:31px;color:var(--gold);line-height:1}
+
+.flow__body{border-left:1px solid rgba(226,200,160,.45);padding-left:28px}
+.flow h3{font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(19px,1.9vw,23px);color:#fff;letter-spacing:.06em;margin-bottom:14px}
+.flow p{color:#B9C7D3;font-size:14.5px;line-height:1.95}
+
+/* つなぎの折れ線 */
+.flow__line{position:absolute;inset:0;z-index:0;pointer-events:none}
+.flow__line svg{width:100%;height:100%;display:block}
+.flow__line polyline{fill:none;stroke:var(--gold);stroke-width:1.2;opacity:.75;vector-effect:non-scaling-stroke}
+.flow__dot{
+  position:absolute;width:10px;height:10px;background:var(--gold);
+  transform:translate(-50%,-50%) rotate(45deg);
+}
 
 /* ---------- 料金 ---------- */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
@@ -557,6 +592,7 @@ body.nav-open{overflow:hidden}
   .ft__top{grid-template-columns:1fr;gap:36px;padding-bottom:34px}
   .ft__nav{grid-template-columns:repeat(3,1fr)}
   .works{grid-template-columns:repeat(2,1fr);gap:20px}
+  .flow__item{width:74%}
   .profile{grid-template-columns:1fr;gap:44px}
   .pf-list{padding:6px 26px}
   .pf-list div{grid-template-columns:150px 1fr;gap:16px;padding:20px 0}
@@ -584,7 +620,11 @@ body.nav-open{overflow:hidden}
   .hero{padding:130px 0 84px}
   .sec{padding:86px 0}
   .sec__head{margin-bottom:44px}
-  .flow li{grid-template-columns:1fr;gap:8px;padding:26px 0}
+  .flow__item{width:100%}
+  .flow__line,.flow__dot{display:none}
+  .flow__inner{grid-template-columns:1fr;gap:20px;padding:28px 26px;min-height:0}
+  .flow__body{border-left:0;border-top:1px solid rgba(226,200,160,.45);padding:20px 0 0}
+  .flow__badge{width:82px;height:82px}
   .pf-list div{grid-template-columns:1fr;gap:10px;padding:18px 0}
   .pf-list dd{padding-left:45px}
   .pf-list dd::before{display:none}
@@ -853,32 +893,77 @@ body.nav-open{overflow:hidden}
   <!-- FLOW：順序があるので番号を使う -->
   <section class="sec sec--navy obs" id="flow">
     <div class="wrap">
-      <div class="sec__head">
-        <div class="bgtext" aria-hidden="true">Flow</div>
+      <div class="sec__head sec__head--center">
         <h2 class="chars">ご依頼から公開まで</h2>
+        <span class="head__rule head__rule--orn" aria-hidden="true"></span>
+      </div>
+      <div class="flow-wrap" style="position:relative">
+      <div class="flow__line" aria-hidden="true">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="58,10 42,30 58,50 42,70 58,90"/></svg>
+        <span class="flow__dot" style="left:58%;top:10%"></span>
+        <span class="flow__dot" style="left:42%;top:30%"></span>
+        <span class="flow__dot" style="left:58%;top:50%"></span>
+        <span class="flow__dot" style="left:42%;top:70%"></span>
+        <span class="flow__dot" style="left:58%;top:90%"></span>
       </div>
       <ol class="flow stg">
-        <li>
-          <span class="flow__no">STEP 01</span>
-          <div><h3>ご相談・現状の確認</h3><p>今のサイトと検索状況を確認し、課題が制作にあるのか運用にあるのかを切り分けます。</p></div>
+        <li class="flow__item">
+          <div class="flow__card">
+            <div class="flow__inner">
+              <span class="flow__badge"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" stroke-width="1.6"/></svg><span class="flow__badge-in"><span class="flow__badge-t">STEP</span><span class="flow__badge-n">01</span></span></span>
+              <div class="flow__body">
+                <h3>ご相談・現状の確認</h3>
+                <p>今のサイトと検索状況を確認し、課題が制作にあるのか運用にあるのかを切り分けます。</p>
+              </div>
+            </div>
+          </div>
         </li>
-        <li>
-          <span class="flow__no">STEP 02</span>
-          <div><h3>構成とお見積り</h3><p>必要なページと優先順位を整理し、費用と期間をお出しします。ここまでは費用をいただきません。</p></div>
+        <li class="flow__item">
+          <div class="flow__card">
+            <div class="flow__inner">
+              <span class="flow__badge"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" stroke-width="1.6"/></svg><span class="flow__badge-in"><span class="flow__badge-t">STEP</span><span class="flow__badge-n">02</span></span></span>
+              <div class="flow__body">
+                <h3>構成とお見積り</h3>
+                <p>必要なページと優先順位を整理し、費用と期間をお出しします。ここまでは費用をいただきません。</p>
+              </div>
+            </div>
+          </div>
         </li>
-        <li>
-          <span class="flow__no">STEP 03</span>
-          <div><h3>設計・原稿</h3><p>ワイヤーフレームと原稿を先に固めます。デザインから始めると、あとで文章が入らず作り直しになります。</p></div>
+        <li class="flow__item">
+          <div class="flow__card">
+            <div class="flow__inner">
+              <span class="flow__badge"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" stroke-width="1.6"/></svg><span class="flow__badge-in"><span class="flow__badge-t">STEP</span><span class="flow__badge-n">03</span></span></span>
+              <div class="flow__body">
+                <h3>設計・原稿</h3>
+                <p>ワイヤーフレームと原稿を先に固めます。デザインから始めると、あとで文章が入らず作り直しになります。</p>
+              </div>
+            </div>
+          </div>
         </li>
-        <li>
-          <span class="flow__no">STEP 04</span>
-          <div><h3>デザイン・実装</h3><p>スマートフォンでの見え方を先に確認しながら進めます。表示速度は実装中に計測します。</p></div>
+        <li class="flow__item">
+          <div class="flow__card">
+            <div class="flow__inner">
+              <span class="flow__badge"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" stroke-width="1.6"/></svg><span class="flow__badge-in"><span class="flow__badge-t">STEP</span><span class="flow__badge-n">04</span></span></span>
+              <div class="flow__body">
+                <h3>デザイン・実装</h3>
+                <p>スマートフォンでの見え方を先に確認しながら進めます。表示速度は実装中に計測します。</p>
+              </div>
+            </div>
+          </div>
         </li>
-        <li>
-          <span class="flow__no">STEP 05</span>
-          <div><h3>公開・引き渡し</h3><p>更新手順をまとめてお渡しします。公開後の計測設定と初回の順位確認まで含みます。</p></div>
+        <li class="flow__item">
+          <div class="flow__card">
+            <div class="flow__inner">
+              <span class="flow__badge"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" stroke-width="1.6"/></svg><span class="flow__badge-in"><span class="flow__badge-t">STEP</span><span class="flow__badge-n">05</span></span></span>
+              <div class="flow__body">
+                <h3>公開・引き渡し</h3>
+                <p>更新手順をまとめてお渡しします。公開後の計測設定と初回の順位確認まで含みます。</p>
+              </div>
+            </div>
+          </div>
         </li>
       </ol>
+      </div>
     </div>
   </section>
 
@@ -1191,13 +1276,13 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01e</span>
+      <span>BUILD_TAG: 2026-09-01f</span>
     </div>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01e");
+console.log("BUILD_TAG: 2026-09-01f");
 
 (function(){
   "use strict";
