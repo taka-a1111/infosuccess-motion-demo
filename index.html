@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31u -->
+<!-- BUILD_TAG: 2026-08-31v -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -85,8 +85,14 @@ ul,ol{list-style:none}
   transition:height .35s var(--ease);
 }
 
-.logo{display:flex;flex-direction:column;gap:2px;font-weight:700;font-size:17px;letter-spacing:.04em;color:var(--navy);line-height:1.2}
-.logo span{font-family:"Archivo",sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--blue)}
+.logo{display:flex;align-items:center;gap:11px}
+.logo__mark{flex:0 0 auto;width:27px;height:36px;display:block}
+.logo__mark .m-bar{fill:var(--navy)}
+.logo__mark .m-wedge{fill:var(--pale)}
+.logo__mark .m-arrow{fill:var(--blue)}
+.logo__text{display:flex;flex-direction:column;gap:3px;line-height:1.15}
+.logo__ja{font-size:17px;font-weight:700;letter-spacing:.10em;color:var(--navy)}
+.logo__en{font-family:"Archivo",sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.26em;color:var(--blue)}
 .hd__nav .nav-cta{
   border:1px solid var(--navy);background:var(--navy);color:#fff;
   padding:10px 18px;transition:background .3s var(--ease),color .3s var(--ease);
@@ -499,6 +505,9 @@ body.nav-open{overflow:hidden}
 @media (max-width:768px){
   body{font-size:15px}
   :root{--hd-h:62px}
+  .logo__mark{width:23px;height:31px}
+  .logo__ja{font-size:15px}
+  .logo__en{font-size:8.5px;letter-spacing:.22em}
   .hero{padding:120px 0 84px}
   .sec{padding:86px 0}
   .sec__head{margin-bottom:44px}
@@ -536,7 +545,7 @@ body.nav-open{overflow:hidden}
 
 <header class="hd" id="hd">
   <div class="hd__in">
-    <a href="#hero" class="logo">インフォサクセス<span>INFOSUCCESS</span></a>
+    <a href="#hero" class="logo" aria-label="インフォサクセス トップへ"><svg class="logo__mark" viewBox="0 0 78 100" aria-hidden="true"><polygon class="m-bar" points="0,12 17,0 17,88 0,88"/><polygon class="m-wedge" points="33,24 72,0 72,12 45,32"/><polygon class="m-arrow" points="20,24 76,54 24,98 24,76 52,56 20,40"/></svg><span class="logo__text"><span class="logo__ja">インフォサクセス</span><span class="logo__en">INFOSUCCESS</span></span></a>
     <nav class="hd__nav">
       <a href="#service">サービス</a>
       <a href="#works">制作実績</a>
@@ -1056,12 +1065,12 @@ body.nav-open{overflow:hidden}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31u</span>
+    <span class="tag">BUILD_TAG: 2026-08-31v</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31u");
+console.log("BUILD_TAG: 2026-08-31v");
 
 (function(){
   "use strict";
