@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31n -->
+<!-- BUILD_TAG: 2026-08-31o -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -228,40 +228,18 @@ body.nav-open{overflow:hidden}
 .hero{position:relative}
 .hero .wrap{position:relative;z-index:1}
 
-/* ---------- ヒーローの斜線（読み込み時に1度だけ引かれる） ---------- */
-.hero__slash{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.hero__slash svg{position:absolute;right:-4%;top:-14%;width:62%;height:132%}
-.hero__slash path{
-  stroke-dasharray:1600;stroke-dashoffset:1600;
-  animation:draw 1.8s var(--ease) forwards;
-}
-.hero__slash path:nth-child(2){animation-delay:.18s}
-.hero__slash path:nth-child(3){animation-delay:.34s}
-@keyframes draw{to{stroke-dashoffset:0}}
-
-/* ---------- 濃紺セクションの背景演出 ---------- */
+/* ---------- 濃紺セクションの背景矩形（ゆっくり往復） ---------- */
 .sec--navy,.contact{position:relative}
-.fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.fx svg{position:absolute;left:50%;bottom:0;width:170%;height:62%;transform:translateX(-50%)}
-.fx__p{
-  position:absolute;bottom:-8px;width:3px;height:3px;background:var(--gold);
-  opacity:0;animation:rise linear infinite;will-change:transform,opacity;
+.slab{
+  position:absolute;pointer-events:none;
+  border:1px solid rgba(255,255,255,.10);
 }
-@keyframes rise{
-  0%{transform:translate3d(0,0,0);opacity:0}
-  14%{opacity:.5}
-  82%{opacity:.28}
-  100%{transform:translate3d(0,-400px,0);opacity:0}
+.slab--a{width:300px;height:300px;top:-90px;right:-70px;animation:drift 26s ease-in-out infinite}
+.slab--b{width:190px;height:190px;bottom:-60px;left:-50px;animation:drift 34s ease-in-out infinite reverse}
+@keyframes drift{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(-26px,22px,0)}
 }
-.fx__s{
-  position:absolute;width:2px;height:2px;background:#fff;
-  opacity:0;animation:blink 5s ease-in-out infinite;
-}
-@keyframes blink{
-  0%,100%{opacity:0}
-  50%{opacity:.6}
-}
-.sec--navy .wrap,.contact .wrap{position:relative;z-index:1}
 
 /* ---------- section ---------- */
 .sec{position:relative;padding:130px 0;overflow:hidden}
@@ -484,8 +462,7 @@ body.nav-open{overflow:hidden}
   .bgtext{opacity:.08 !important;transform:none !important}
   .sv__media::after{transform:scaleX(0) !important}
   .sv__inner{transform:none !important}
-  .fx__p,.fx__s{animation:none !important;opacity:.18 !important}
-  .hero__slash path{animation:none !important;stroke-dashoffset:0 !important}
+  .slab{animation:none !important}
   .drawer{transition:none !important}
   .drawer[data-open="true"]{opacity:1 !important;visibility:visible !important;transform:none !important}
 }
@@ -532,13 +509,6 @@ body.nav-open{overflow:hidden}
 
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero" id="hero">
-    <div class="hero__slash" aria-hidden="true">
-      <svg viewBox="0 0 600 900" preserveAspectRatio="none">
-        <path d="M330 940 L640 120" stroke="#E2C8A0" stroke-width="10" opacity=".55"/>
-        <path d="M430 940 L700 220" stroke="#00243F" stroke-width="2" opacity=".10"/>
-        <path d="M250 940 L520 200" stroke="#0B629E" stroke-width="3" opacity=".12"/>
-      </svg>
-    </div>
     <div class="wrap">
       <div class="hero__body">
           <h1>作るだけで終わらない。<br><em class="ac">見つけてもらい、選ばれる</em>Webへ。</h1>
@@ -688,29 +658,8 @@ body.nav-open{overflow:hidden}
 
   <!-- FLOW：順序があるので番号を使う -->
   <section class="sec sec--navy obs" id="flow">
-    <div class="fx" aria-hidden="true">
-      <svg viewBox="0 0 1200 400" preserveAspectRatio="none"><line x1="0" y1="0" x2="1200" y2="0" stroke="#fff" stroke-width="1" opacity="0.030"/><line x1="0" y1="56" x2="1200" y2="56" stroke="#fff" stroke-width="1" opacity="0.038"/><line x1="0" y1="104" x2="1200" y2="104" stroke="#fff" stroke-width="1" opacity="0.046"/><line x1="0" y1="146" x2="1200" y2="146" stroke="#fff" stroke-width="1" opacity="0.054"/><line x1="0" y1="181" x2="1200" y2="181" stroke="#fff" stroke-width="1" opacity="0.062"/><line x1="0" y1="212" x2="1200" y2="212" stroke="#fff" stroke-width="1" opacity="0.070"/><line x1="0" y1="238" x2="1200" y2="238" stroke="#fff" stroke-width="1" opacity="0.078"/><line x1="0" y1="261" x2="1200" y2="261" stroke="#fff" stroke-width="1" opacity="0.086"/><line x1="0" y1="280" x2="1200" y2="280" stroke="#fff" stroke-width="1" opacity="0.094"/><line x1="0" y1="400" x2="516" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="100" y1="400" x2="530" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="200" y1="400" x2="544" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="300" y1="400" x2="558" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="400" y1="400" x2="572" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="500" y1="400" x2="586" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="600" y1="400" x2="600" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="700" y1="400" x2="614" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="800" y1="400" x2="628" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="900" y1="400" x2="642" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="1000" y1="400" x2="656" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="1100" y1="400" x2="670" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="1200" y1="400" x2="684" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/></svg>
-      <span class="fx__p" style="left:45.5%;animation-duration:14.0s;animation-delay:11.1s"></span>
-      <span class="fx__p" style="left:46.8%;animation-duration:13.6s;animation-delay:7.0s"></span>
-      <span class="fx__p" style="left:20.4%;animation-duration:13.6s;animation-delay:7.6s"></span>
-      <span class="fx__p" style="left:77.5%;animation-duration:9.8s;animation-delay:3.6s"></span>
-      <span class="fx__p" style="left:11.5%;animation-duration:16.3s;animation-delay:8.3s"></span>
-      <span class="fx__p" style="left:6.9%;animation-duration:17.8s;animation-delay:11.6s"></span>
-      <span class="fx__p" style="left:64.5%;animation-duration:14.5s;animation-delay:1.9s"></span>
-      <span class="fx__p" style="left:4.4%;animation-duration:13.8s;animation-delay:0.7s"></span>
-      <span class="fx__p" style="left:20.9%;animation-duration:11.2s;animation-delay:0.4s"></span>
-      <span class="fx__p" style="left:46.6%;animation-duration:13.0s;animation-delay:10.1s"></span>
-      <span class="fx__p" style="left:51.8%;animation-duration:14.8s;animation-delay:6.0s"></span>
-      <span class="fx__p" style="left:65.3%;animation-duration:13.1s;animation-delay:3.3s"></span>
-      <span class="fx__p" style="left:96.8%;animation-duration:18.0s;animation-delay:10.1s"></span>
-      <span class="fx__p" style="left:69.5%;animation-duration:11.8s;animation-delay:2.8s"></span>
-      <span class="fx__s" style="left:31.0%;top:12.9%;animation-delay:3.8s"></span>
-      <span class="fx__s" style="left:41.0%;top:67.3%;animation-delay:1.9s"></span>
-      <span class="fx__s" style="left:91.2%;top:67.3%;animation-delay:0.0s"></span>
-      <span class="fx__s" style="left:23.9%;top:71.7%;animation-delay:2.3s"></span>
-      <span class="fx__s" style="left:93.2%;top:35.8%;animation-delay:0.4s"></span>
-      <span class="fx__s" style="left:61.7%;top:62.5%;animation-delay:1.3s"></span>
-    </div>
+    <div class="slab slab--a" aria-hidden="true"></div>
+    <div class="slab slab--b" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Flow</div>
@@ -924,29 +873,8 @@ body.nav-open{overflow:hidden}
 
   <!-- CONTACT -->
   <section class="contact obs" id="contact">
-    <div class="fx" aria-hidden="true">
-      <svg viewBox="0 0 1200 400" preserveAspectRatio="none"><line x1="0" y1="0" x2="1200" y2="0" stroke="#fff" stroke-width="1" opacity="0.030"/><line x1="0" y1="56" x2="1200" y2="56" stroke="#fff" stroke-width="1" opacity="0.038"/><line x1="0" y1="104" x2="1200" y2="104" stroke="#fff" stroke-width="1" opacity="0.046"/><line x1="0" y1="146" x2="1200" y2="146" stroke="#fff" stroke-width="1" opacity="0.054"/><line x1="0" y1="181" x2="1200" y2="181" stroke="#fff" stroke-width="1" opacity="0.062"/><line x1="0" y1="212" x2="1200" y2="212" stroke="#fff" stroke-width="1" opacity="0.070"/><line x1="0" y1="238" x2="1200" y2="238" stroke="#fff" stroke-width="1" opacity="0.078"/><line x1="0" y1="261" x2="1200" y2="261" stroke="#fff" stroke-width="1" opacity="0.086"/><line x1="0" y1="280" x2="1200" y2="280" stroke="#fff" stroke-width="1" opacity="0.094"/><line x1="0" y1="400" x2="516" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="100" y1="400" x2="530" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="200" y1="400" x2="544" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="300" y1="400" x2="558" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="400" y1="400" x2="572" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="500" y1="400" x2="586" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="600" y1="400" x2="600" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="700" y1="400" x2="614" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="800" y1="400" x2="628" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="900" y1="400" x2="642" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="1000" y1="400" x2="656" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="1100" y1="400" x2="670" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/><line x1="1200" y1="400" x2="684" y2="0" stroke="#fff" stroke-width="1" opacity=".05"/></svg>
-      <span class="fx__p" style="left:54.5%;animation-duration:12.1s;animation-delay:10.1s"></span>
-      <span class="fx__p" style="left:30.1%;animation-duration:13.6s;animation-delay:4.1s"></span>
-      <span class="fx__p" style="left:42.1%;animation-duration:17.8s;animation-delay:1.2s"></span>
-      <span class="fx__p" style="left:44.8%;animation-duration:11.0s;animation-delay:4.2s"></span>
-      <span class="fx__p" style="left:96.9%;animation-duration:12.0s;animation-delay:7.3s"></span>
-      <span class="fx__p" style="left:42.4%;animation-duration:15.6s;animation-delay:5.4s"></span>
-      <span class="fx__p" style="left:19.0%;animation-duration:12.9s;animation-delay:4.9s"></span>
-      <span class="fx__p" style="left:77.5%;animation-duration:14.1s;animation-delay:2.4s"></span>
-      <span class="fx__p" style="left:66.3%;animation-duration:11.7s;animation-delay:6.1s"></span>
-      <span class="fx__p" style="left:23.7%;animation-duration:12.7s;animation-delay:9.4s"></span>
-      <span class="fx__p" style="left:51.5%;animation-duration:15.8s;animation-delay:9.1s"></span>
-      <span class="fx__p" style="left:58.2%;animation-duration:14.8s;animation-delay:4.8s"></span>
-      <span class="fx__p" style="left:61.1%;animation-duration:16.0s;animation-delay:1.2s"></span>
-      <span class="fx__p" style="left:91.1%;animation-duration:12.3s;animation-delay:1.7s"></span>
-      <span class="fx__s" style="left:18.5%;top:31.8%;animation-delay:0.3s"></span>
-      <span class="fx__s" style="left:40.8%;top:37.1%;animation-delay:3.3s"></span>
-      <span class="fx__s" style="left:47.0%;top:73.5%;animation-delay:3.3s"></span>
-      <span class="fx__s" style="left:33.9%;top:69.2%;animation-delay:3.5s"></span>
-      <span class="fx__s" style="left:92.1%;top:59.4%;animation-delay:4.8s"></span>
-      <span class="fx__s" style="left:23.5%;top:27.5%;animation-delay:4.9s"></span>
-    </div>
+    <div class="slab slab--a" aria-hidden="true"></div>
+    <div class="slab slab--b" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Contact</div>
@@ -1021,12 +949,12 @@ body.nav-open{overflow:hidden}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31n</span>
+    <span class="tag">BUILD_TAG: 2026-08-31o</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31n");
+console.log("BUILD_TAG: 2026-08-31o");
 
 (function(){
   "use strict";
