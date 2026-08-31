@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31l -->
+<!-- BUILD_TAG: 2026-08-31m -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -225,13 +225,7 @@ body.nav-open{overflow:hidden}
   will-change:transform;
 }
 
-/* ---------- ヒーロー背景の縦罫線（視差） ---------- */
 .hero{position:relative}
-.hero__lines{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.hero__lines i{
-  position:absolute;top:-20%;width:1px;height:140%;
-  background:var(--line);will-change:transform;
-}
 .hero .wrap{position:relative;z-index:1}
 
 /* ---------- 濃紺セクションの背景矩形（ゆっくり往復） ---------- */
@@ -469,7 +463,6 @@ body.nav-open{overflow:hidden}
   .sv__media::after{transform:scaleX(0) !important}
   .sv__inner{transform:none !important}
   .slab{animation:none !important}
-  .hero__lines i{transform:none !important}
   .drawer{transition:none !important}
   .drawer[data-open="true"]{opacity:1 !important;visibility:visible !important;transform:none !important}
 }
@@ -516,12 +509,6 @@ body.nav-open{overflow:hidden}
 
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero" id="hero">
-    <div class="hero__lines" aria-hidden="true">
-      <i style="left:14%" data-speed="0.10"></i>
-      <i style="left:37%" data-speed="0.18"></i>
-      <i style="left:61%" data-speed="0.07"></i>
-      <i style="left:84%" data-speed="0.14"></i>
-    </div>
     <div class="wrap">
       <div class="hero__body">
           <h1>作るだけで終わらない。<br><em class="ac">見つけてもらい、選ばれる</em>Webへ。</h1>
@@ -962,12 +949,12 @@ body.nav-open{overflow:hidden}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31l</span>
+    <span class="tag">BUILD_TAG: 2026-08-31m</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31l");
+console.log("BUILD_TAG: 2026-08-31m");
 
 (function(){
   "use strict";
@@ -1068,7 +1055,6 @@ console.log("BUILD_TAG: 2026-08-31l");
   var targets = document.querySelectorAll(".obs");
   var hd = document.getElementById("hd");
   var bar = document.getElementById("progress");
-  var lines = document.querySelectorAll(".hero__lines i");
   var io = null;
 
   if (reduce || !("IntersectionObserver" in window)) {
@@ -1097,14 +1083,6 @@ console.log("BUILD_TAG: 2026-08-31l");
       if (bar) {
         var max = document.documentElement.scrollHeight - window.innerHeight;
         bar.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
-      }
-
-      /* ヒーローの縦罫線をゆっくり視差移動させる */
-      if (!reduce && lines.length && y < window.innerHeight * 1.4) {
-        for (var i = 0; i < lines.length; i++) {
-          var speed = parseFloat(lines[i].dataset.speed || "0.1");
-          lines[i].style.transform = "translate3d(0," + (y * speed) + "px,0)";
-        }
       }
 
       ticking = false;
