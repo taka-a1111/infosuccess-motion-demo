@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01n -->
+<!-- BUILD_TAG: 2026-09-01o -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -171,12 +171,11 @@ body.nav-open{overflow:hidden}
 .btns{display:flex;flex-wrap:wrap;gap:14px}
 
 /* ---------- hero（意図的にアニメーションなし） ---------- */
-.hero{padding:180px 0 110px;border-bottom:1px solid var(--line);overflow:hidden}
-.hero__grid{display:grid;grid-template-columns:1fr 1.06fr;gap:60px;align-items:center}
+.hero{padding:192px 0 120px;border-bottom:1px solid var(--line)}
 
 .hero h1{
-  font-size:clamp(28px,4.2vw,52px);font-weight:700;line-height:1.36;
-  letter-spacing:.01em;color:var(--navy);
+  font-size:clamp(28px,4.6vw,54px);font-weight:700;line-height:1.42;
+  letter-spacing:.01em;color:var(--navy);max-width:17em;
 }
 
 /* ---------- お問い合わせフォーム ---------- */
@@ -218,47 +217,12 @@ body.nav-open{overflow:hidden}
 .form__done small{display:block;margin-top:12px;font-size:12px;color:var(--muted)}
 [hidden]{display:none !important}
 .hero h1 .ac{font-style:normal;color:var(--blue)}
-.hero__rule{width:72px;height:3px;background:var(--gold);margin:34px 0 28px}
+.hero__rule{width:64px;height:3px;background:var(--gold);margin:34px 0 26px}
 .hero p{max-width:44em;color:var(--muted);font-size:16px;margin-bottom:40px}
 .hero__meta{
-  margin-top:54px;padding-top:26px;border-top:1px solid var(--line);
-  display:flex;flex-wrap:wrap;align-items:center;gap:14px 0;
+  margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:12px 40px;font-size:13px;color:var(--muted);
 }
-.hero__meta span{
-  display:flex;align-items:center;gap:9px;padding:0 22px;
-  font-size:14px;font-weight:500;color:var(--navy);border-right:1px solid var(--line);
-}
-.hero__meta span:first-child{padding-left:0}
-.hero__meta span:last-child{border-right:0}
-.hero__meta svg{width:19px;height:19px;fill:none;stroke:var(--blue);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-
-/* ---------- ヒーローのダッシュボード ---------- */
-.dash{border:1px solid var(--line);background:#fff;padding:20px 20px 16px}
-.dash__ttl{display:flex;align-items:center;gap:8px;font-family:"Archivo",sans-serif;font-size:11.5px;font-weight:600;letter-spacing:.14em;color:var(--blue)}
-.dash__ttl i{width:9px;height:9px;background:var(--blue);display:block}
-.dash__ov{font-size:10.5px;color:#9AA7B3;margin:12px 0 8px}
-.dash__kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:14px}
-.dash__kpis > div{background:#fff;padding:11px 12px}
-.k-l{font-size:10px;color:var(--muted);margin-bottom:5px}
-.k-v{font-size:16px;font-weight:700;color:var(--navy);display:flex;align-items:baseline;gap:6px;line-height:1.2}
-.k-v small{font-size:9.5px;font-weight:600;color:#1F8A4C}
-.k-v small.dn{color:#B3352E}
-.dash__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.dash__card{border:1px solid var(--line);padding:12px}
-.c-t{font-size:10.5px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.d-line{width:100%;height:62px;display:block}
-.d-line polyline{fill:none;stroke:var(--blue);stroke-width:1.6;vector-effect:non-scaling-stroke}
-.d-bars li{display:grid;grid-template-columns:56px 1fr 30px;gap:7px;align-items:center;font-size:9.5px;color:var(--muted);margin-bottom:7px}
-.d-bars li:last-child{margin-bottom:0}
-.d-bars span{height:7px;background:var(--pale);display:block}
-.d-bars span i{display:block;height:100%;width:var(--w);background:var(--blue)}
-.d-bars b{font-weight:500;text-align:right;color:var(--navy)}
-.d-donut{display:flex;align-items:center;gap:12px}
-.d-donut svg{width:66px;height:66px;flex:0 0 auto}
-.d-donut circle{fill:none;stroke-width:13}
-.d-legend li{display:flex;align-items:center;gap:7px;font-size:9.5px;color:var(--muted);margin-bottom:5px}
-.d-legend i{width:8px;height:8px;display:block}
-.dash__cap{font-size:10px;color:#9AA7B3;margin-top:10px;text-align:right}
 
 
 /* ---------- スクロール進捗バー ---------- */
@@ -827,7 +791,6 @@ body.nav-open{overflow:hidden}
   .ft__top{grid-template-columns:1fr;gap:36px;padding-bottom:34px}
   .ft__nav{grid-template-columns:repeat(3,1fr)}
   .works{grid-template-columns:repeat(2,1fr);gap:20px}
-  .hero__grid{grid-template-columns:1fr;gap:44px}
   .flow__item{width:100%}
   .profile{grid-template-columns:1fr;gap:44px}
   .pf-list{padding:6px 26px}
@@ -878,10 +841,7 @@ body.nav-open{overflow:hidden}
   .logo__mark{width:29px;height:39px}
   .logo__ja{font-size:18px}
   .logo__en{font-size:9.5px;letter-spacing:.22em}
-  .hero{padding:126px 0 78px}
-  .dash__kpis{grid-template-columns:repeat(2,1fr)}
-  .dash__grid{grid-template-columns:1fr}
-  .hero__meta span{padding:0 14px;font-size:13px}
+  .hero{padding:130px 0 84px}
   .sec{padding:86px 0}
   .sec__head{margin-bottom:44px}
   .flow{gap:46px}
@@ -959,9 +919,8 @@ body.nav-open{overflow:hidden}
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero" id="hero">
     <div class="wrap">
-      <div class="hero__grid">
-        <div class="hero__body">
-          <h1>作るだけで終わらない。<br><em class="ac">見つけてもらい、</em><br><em class="ac">選ばれる</em>Webへ。</h1>
+      <div class="hero__body">
+          <h1>作るだけで終わらない。<br><em class="ac">見つけてもらい、選ばれる</em>Webへ。</h1>
           <div class="hero__rule"></div>
           <p>ホームページ制作からSEO、AI検索対策、MEOまで。集客につながるWeb戦略を、ひとつの窓口で設計します。制作会社とSEO会社を行き来する必要はありません。</p>
           <div class="btns">
@@ -974,66 +933,13 @@ body.nav-open{overflow:hidden}
               <span class="btn__t btn__t--under">サービスを見る</span></span>
             </a>
           </div>
+        <div class="hero__meta">
+          <span>ホームページ制作</span>
+          <span>SEO・記事制作</span>
+          <span>AI検索対策（AIO・LLMO）</span>
+          <span>地図検索・MEO</span>
+          <span>オンラインで全国対応</span>
         </div>
-        <div class="dash" aria-hidden="true">
-          <p class="dash__ttl"><i></i>DASHBOARD</p>
-          <p class="dash__ov">Overview</p>
-          <div class="dash__kpis">
-            <div><p class="k-l">セッション数</p><p class="k-v">12,345<small>+8.2%</small></p></div>
-            <div><p class="k-l">コンバージョン数</p><p class="k-v">678<small>+12.4%</small></p></div>
-            <div><p class="k-l">検索表示回数</p><p class="k-v">98,765<small>+15.7%</small></p></div>
-            <div><p class="k-l">平均掲載順位</p><p class="k-v">12.4<small class="dn">-3.1%</small></p></div>
-          </div>
-          <div class="dash__grid">
-            <div class="dash__card">
-              <p class="c-t">パフォーマンス推移</p>
-              <svg class="d-line" viewBox="0 0 200 62" preserveAspectRatio="none">
-                <polyline points="0,54 22,50 44,44 66,46 88,36 110,30 132,32 154,20 176,14 200,6"/>
-              </svg>
-            </div>
-            <div class="dash__card">
-              <p class="c-t">チャネル別セッション</p>
-              <ul class="d-bars">
-                <li>オーガニック検索<span><i style="--w:92%"></i></span><b>7.2K</b></li>
-                <li>ダイレクト<span><i style="--w:48%"></i></span><b>3.8K</b></li>
-                <li>リファラル<span><i style="--w:31%"></i></span><b>2.4K</b></li>
-                <li>SNS<span><i style="--w:19%"></i></span><b>1.5K</b></li>
-                <li>その他<span><i style="--w:8%"></i></span><b>0.6K</b></li>
-              </ul>
-            </div>
-            <div class="dash__card">
-              <p class="c-t">デバイス別セッション</p>
-              <div class="d-donut">
-                <svg viewBox="0 0 80 80">
-                  <circle cx="40" cy="40" r="28" stroke="#E7EDF2"/>
-                  <circle cx="40" cy="40" r="28" stroke="#0B629E" stroke-dasharray="97 79" transform="rotate(-90 40 40)"/>
-                  <circle cx="40" cy="40" r="28" stroke="#7FA8CE" stroke-dasharray="58 118" transform="rotate(108 40 40)"/>
-                </svg>
-                <ul class="d-legend">
-                  <li><i style="background:#0B629E"></i>PC</li>
-                  <li><i style="background:#7FA8CE"></i>スマートフォン</li>
-                  <li><i style="background:#E7EDF2"></i>タブレット</li>
-                </ul>
-              </div>
-            </div>
-            <div class="dash__card">
-              <p class="c-t">キーワード順位状況</p>
-              <ul class="d-bars">
-                <li>1-3位<span><i style="--w:70%"></i></span><b>35%</b></li>
-                <li>4-10位<span><i style="--w:56%"></i></span><b>28%</b></li>
-                <li>11-30位<span><i style="--w:44%"></i></span><b>22%</b></li>
-                <li>31位以下<span><i style="--w:30%"></i></span><b>15%</b></li>
-              </ul>
-            </div>
-          </div>
-          <p class="dash__cap">※ 表示内容はイメージです</p>
-        </div>
-      </div>
-      <div class="hero__meta">
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 4.5h19v12h-19z"/><path d="M8 20.5h8M12 16.5v4"/></svg>Web制作</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.6"/><path d="M15.4 15.4L21 21"/></svg>SEO対策</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4.5a3 3 0 013 3v9a3 3 0 01-6 0 2.6 2.6 0 01-.6-5 2.6 2.6 0 011.4-4 2.7 2.7 0 012.2-3z"/><path d="M15 4.5a3 3 0 00-3 3v9a3 3 0 006 0 2.6 2.6 0 00.6-5 2.6 2.6 0 00-1.4-4 2.7 2.7 0 00-2.2-3z"/></svg>AI検索対策</span>
-        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.5s6.5-6.1 6.5-10.5a6.5 6.5 0 10-13 0C5.5 15.4 12 21.5 12 21.5z"/><circle cx="12" cy="10.8" r="2.4"/></svg>MEO対策</span>
       </div>
     </div>
   </section>
@@ -1785,7 +1691,7 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01n</span>
+      <span>BUILD_TAG: 2026-09-01o</span>
     </div>
   </div>
 </footer>
@@ -1811,7 +1717,7 @@ body.nav-open{overflow:hidden}
 </div>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01n");
+console.log("BUILD_TAG: 2026-09-01o");
 
 (function(){
   "use strict";
