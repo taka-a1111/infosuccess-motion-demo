@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01b -->
+<!-- BUILD_TAG: 2026-09-01c -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -100,7 +100,7 @@ ul,ol{list-style:none}
 }
 .hd__nav .nav-cta::after{display:none}
 .hd__nav .nav-cta:hover{background:transparent;color:var(--navy)}
-.hd__nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500}
+.hd__nav{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:500;margin-left:auto}
 .hd__nav a{position:relative;padding-block:4px;color:var(--navy)}
 .hd__nav a::after{
   content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
@@ -111,7 +111,7 @@ ul,ol{list-style:none}
 
 /* ---------- ハンバーガー ---------- */
 .burger{
-  display:none;position:relative;z-index:110;
+  display:block;position:relative;z-index:110;margin-left:22px;
   width:44px;height:44px;padding:0;margin-right:-10px;
   background:none;border:0;cursor:pointer;
 }
@@ -518,7 +518,7 @@ body.nav-open{overflow:hidden}
 /* ---------- responsive ---------- */
 @media (max-width:1000px){
   .hd__nav{display:none}
-  .burger{display:block}
+  .burger{margin-left:auto}
 }
 @media (max-width:900px){
   .ft__top{grid-template-columns:1fr;gap:36px;padding-bottom:34px}
@@ -1133,13 +1133,13 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01b</span>
+      <span>BUILD_TAG: 2026-09-01c</span>
     </div>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01b");
+console.log("BUILD_TAG: 2026-09-01c");
 
 (function(){
   "use strict";
@@ -1182,9 +1182,6 @@ console.log("BUILD_TAG: 2026-09-01b");
         setNav(false);
         burger.focus();
       }
-    });
-    window.addEventListener("resize", function(){
-      if (window.innerWidth > 1000 && burger.getAttribute("aria-expanded") === "true") setNav(false);
     });
   }
 
