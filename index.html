@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31k -->
+<!-- BUILD_TAG: 2026-08-31l -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
-<meta name="description" content="ホームページ制作、SEO、AI検索対策（AIO・LLMO）、地図検索・MEOを一人の担当者が一貫して設計します。作って終わりにせず、問い合わせにつながるところまで支援。オンラインで全国対応です。">
+<meta name="description" content="ホームページ制作、SEO・記事制作、AI検索対策（AIO・LLMO）、地図検索・MEOを一人の担当者が一貫して対応します。作って終わりにせず、問い合わせにつながるところまで支援。オンラインで全国対応です。">
 <link rel="canonical" href="https://infosuccess-motion-demo.vercel.app/">
 
 <!-- デモサイトのため検索結果に出さない。本番へ移す際はこの1行を削除する -->
@@ -30,6 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
+  --hd-h:76px;
   --navy:#00243F;
   --blue:#0B629E;
   --gold:#E2C8A0;
@@ -74,17 +75,16 @@ ul,ol{list-style:none}
 /* ---------- header ---------- */
 .hd{
   position:fixed;inset:0 0 auto 0;z-index:100;
-  background:transparent;
-  border-bottom:1px solid transparent;
-  transition:background .35s var(--ease),border-color .35s var(--ease);
+  background:#fff;
+  border-bottom:1px solid var(--line);
 }
-.hd.is-scrolled{background:#fff;border-bottom-color:var(--line)}
+.hd.is-scrolled{box-shadow:none}
 .hd__in{
   width:min(100% - 40px,var(--wrap));margin-inline:auto;
-  height:76px;display:flex;align-items:center;justify-content:space-between;
+  height:var(--hd-h);display:flex;align-items:center;justify-content:space-between;
   transition:height .35s var(--ease);
 }
-.hd.is-scrolled .hd__in{height:60px}
+
 .logo{display:flex;flex-direction:column;gap:2px;font-weight:700;font-size:17px;letter-spacing:.04em;color:var(--navy);line-height:1.2}
 .logo span{font-family:"Archivo",sans-serif;font-size:10px;font-weight:600;letter-spacing:.22em;color:var(--blue)}
 .hd__nav .nav-cta{
@@ -101,6 +101,49 @@ ul,ol{list-style:none}
   transition:transform .4s var(--ease);
 }
 .hd__nav a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* ---------- ハンバーガー ---------- */
+.burger{
+  display:none;position:relative;z-index:110;
+  width:44px;height:44px;padding:0;margin-right:-10px;
+  background:none;border:0;cursor:pointer;
+}
+.burger span{
+  position:absolute;left:11px;width:22px;height:2px;background:var(--navy);
+  transition:transform .35s var(--ease),opacity .2s var(--ease);
+}
+.burger span:nth-child(1){top:15px}
+.burger span:nth-child(2){top:21px}
+.burger span:nth-child(3){top:27px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ---------- ドロワー ---------- */
+.drawer{
+  position:fixed;inset:var(--hd-h) 0 0 0;z-index:90;
+  background:var(--navy);
+  padding:28px 20px 40px;overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(-12px);
+  transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s;
+}
+.drawer[data-open="true"]{opacity:1;visibility:visible;transform:translateY(0)}
+.drawer a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:19px 4px;border-bottom:1px solid rgba(255,255,255,.20);
+  color:#fff;font-size:17px;font-weight:500;
+}
+.drawer a::after{
+  content:"";width:7px;height:7px;border-top:1px solid var(--gold);
+  border-right:1px solid var(--gold);transform:rotate(45deg);
+}
+.drawer .nav-cta{
+  margin-top:26px;border:1px solid #fff;background:#fff;color:var(--navy);
+  justify-content:center;font-weight:700;padding:18px 20px;
+}
+.drawer .nav-cta::after{border-color:var(--navy)}
+.drawer__note{margin-top:22px;font-size:13px;color:#93A5B4;line-height:1.9}
+body.nav-open{overflow:hidden}
 
 /* ---------- button (二重テキスト) ---------- */
 .btn{
@@ -388,6 +431,10 @@ ul,ol{list-style:none}
 .tag{font-family:"Archivo",sans-serif;font-size:12px;letter-spacing:.08em;color:var(--muted)}
 
 /* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .hd__nav{display:none}
+  .burger{display:block}
+}
 @media (max-width:900px){
   .works{grid-template-columns:repeat(2,1fr)}
   .profile{grid-template-columns:1fr;gap:36px}
@@ -399,8 +446,8 @@ ul,ol{list-style:none}
 }
 @media (max-width:768px){
   body{font-size:15px}
-  .hd__nav{display:none}
-  .hero{padding:130px 0 90px}
+  :root{--hd-h:62px}
+  .hero{padding:120px 0 84px}
   .sec{padding:86px 0}
   .sec__head{margin-bottom:44px}
   .flow li{grid-template-columns:1fr;gap:8px;padding:26px 0}
@@ -423,10 +470,12 @@ ul,ol{list-style:none}
   .sv__inner{transform:none !important}
   .slab{animation:none !important}
   .hero__lines i{transform:none !important}
+  .drawer{transition:none !important}
+  .drawer[data-open="true"]{opacity:1 !important;visibility:visible !important;transform:none !important}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://infosuccess-motion-demo.vercel.app/#website","url":"https://infosuccess-motion-demo.vercel.app/","name":"インフォサクセス","inLanguage":"ja","publisher":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"WebPage","@id":"https://infosuccess-motion-demo.vercel.app/#webpage","url":"https://infosuccess-motion-demo.vercel.app/","name":"ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス","description":"制作・SEO・AI検索対策・MEOを一人の担当者が一貫して設計します。作って終わりにせず、問い合わせにつながるところまで支援します。","inLanguage":"ja","isPartOf":{"@id":"https://infosuccess-motion-demo.vercel.app/#website"},"breadcrumb":{"@id":"https://infosuccess-motion-demo.vercel.app/#breadcrumb"},"about":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"BreadcrumbList","@id":"https://infosuccess-motion-demo.vercel.app/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://infosuccess-motion-demo.vercel.app/"}]},{"@type":"Person","@id":"https://infosuccess-motion-demo.vercel.app/#person","name":"高崎","jobTitle":"Webディレクター","description":"メーカーでのソフトウェア開発を経て、2011年よりWeb業界へ。SEO実務歴16年、ライティング歴15年、Web制作歴12年。SEO検定1級。","worksFor":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"ProfessionalService","@id":"https://infosuccess-motion-demo.vercel.app/#business","name":"インフォサクセス","url":"https://infosuccess-motion-demo.vercel.app/","description":"ホームページ制作、SEOコンサルティング、AI検索対策（AIO・LLMO）、地図検索・MEOを一貫して提供します。名古屋を拠点に全国対応。","image":"https://infosuccess-motion-demo.vercel.app/img/homepage.webp","address":{"@type":"PostalAddress","addressLocality":"名古屋市","addressRegion":"愛知県","addressCountry":"JP"},"areaServed":{"@type":"Country","name":"日本"},"founder":{"@id":"https://infosuccess-motion-demo.vercel.app/#person"},"employee":{"@id":"https://infosuccess-motion-demo.vercel.app/#person"},"knowsAbout":["検索エンジン最適化","WordPress","ホームページ制作","AI検索対策","AIO","LLMO","生成AI検索","Webライティング"],"priceRange":"¥100,000〜","currenciesAccepted":"JPY","availableLanguage":{"@type":"Language","name":"日本語"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-web","name":"ホームページ制作","description":"WordPressを中心に、更新しやすく問い合わせにつながる構成で設計します。スマートフォン表示と表示速度は制作時点で作り込みます。","serviceType":"Web Design","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-search","name":"SEOコンサルティング","description":"キーワード設計から記事構成、既存記事のリライトまで対応します。順位ではなく、問い合わせにつながる検索流入を増やすことを目的に進めます。","serviceType":"Search Engine Optimization","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-ai","name":"AI検索対策（AIO・LLMO）","description":"ChatGPTなどのAIが情報源として引用しやすい構造にサイトを整えます。検索エンジンだけを見た対策では届かない層に接点をつくります。","serviceType":"AI Search Optimization","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-local","name":"地図検索・MEO","description":"Googleビジネスプロフィールとサイトの情報を一致させ、地域名を含む検索に対応します。写真と投稿の運用方法もあわせてお渡しします。","serviceType":"Local SEO","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Offer","name":"立ち上げ","description":"1〜3ページ。スマートフォン対応、お問い合わせフォーム、基本的なSEO設定。制作期間の目安は2〜3週間。","priceSpecification":{"@type":"PriceSpecification","price":100000,"priceCurrency":"JPY","valueAddedTaxIncluded":true},"availability":"https://schema.org/InStock","seller":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"Offer","name":"集客設計","description":"5〜8ページ。WordPressで自社更新が可能。キーワード設計にもとづく構成、お知らせ・ブログ機能、更新方法のレクチャー。制作期間の目安は4〜6週間。","priceSpecification":{"@type":"PriceSpecification","price":200000,"priceCurrency":"JPY","valueAddedTaxIncluded":true},"availability":"https://schema.org/InStock","seller":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"Offer","name":"検索・AI成長","description":"集客設計プランの内容すべてに加え、SEO記事の初期5本、AI検索向けの構造化対応、公開後3ヶ月の運用サポート。制作期間の目安は6〜10週間。","priceSpecification":{"@type":"PriceSpecification","price":300000,"priceCurrency":"JPY","valueAddedTaxIncluded":true},"availability":"https://schema.org/InStock","seller":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"FAQPage","@id":"https://infosuccess-motion-demo.vercel.app/#faq","mainEntity":[{"@type":"Question","name":"ホームページを持っていませんが、何から始めればいいですか。","acceptedAnswer":{"@type":"Answer","text":"まず無料のご相談で、何を目的にするのかを整理するところから始めます。その場で制作を決めていただく必要はありません。"}},{"@type":"Question","name":"すでにあるサイトの改善だけをお願いできますか。","acceptedAnswer":{"@type":"Answer","text":"できます。現状のサイトを診断し、作り直すべきか、部分的な改善で足りるかをお伝えします。作り直しが不要な場合はその旨をお伝えします。"}},{"@type":"Question","name":"制作期間はどのくらいかかりますか。","acceptedAnswer":{"@type":"Answer","text":"ページ数によりますが、5ページ程度で4〜6週間が目安です。原稿と写真のご準備状況によって前後します。"}},{"@type":"Question","name":"写真や原稿がなくても依頼できますか。","acceptedAnswer":{"@type":"Answer","text":"可能です。原稿はヒアリングをもとにこちらで構成案を作成します。写真撮影の手配やディレクションは承っておりませんが、お手持ちの写真の活用や、商用利用できる素材からの選定はサポートします。"}},{"@type":"Question","name":"公開したあと、自分で更新できますか。","acceptedAnswer":{"@type":"Answer","text":"WordPressで制作するため、お知らせや文章の更新はご自身で行えます。公開時に操作方法をご説明します。"}},{"@type":"Question","name":"修正は何回まで対応してもらえますか。","acceptedAnswer":{"@type":"Answer","text":"文言や画像の差し替え、色や余白の微調整は回数を設けていません。デザインや構成そのものの変更は別途お見積りとなります。"}},{"@type":"Question","name":"SEOだけ、記事作成だけの依頼もできますか。","acceptedAnswer":{"@type":"Answer","text":"できます。制作を伴わないSEOコンサルティングや記事作成のみのご依頼も承っています。"}},{"@type":"Question","name":"対応エリアは名古屋だけですか。","acceptedAnswer":{"@type":"Answer","text":"全国対応しています。打ち合わせはオンラインで行うため、これまでも他県のお客様のご依頼を担当しています。"}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://infosuccess-motion-demo.vercel.app/#website","url":"https://infosuccess-motion-demo.vercel.app/","name":"インフォサクセス","inLanguage":"ja","publisher":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"WebPage","@id":"https://infosuccess-motion-demo.vercel.app/#webpage","url":"https://infosuccess-motion-demo.vercel.app/","name":"ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス","description":"制作・SEO・AI検索対策・MEOを一人の担当者が一貫して設計します。作って終わりにせず、問い合わせにつながるところまで支援します。","inLanguage":"ja","isPartOf":{"@id":"https://infosuccess-motion-demo.vercel.app/#website"},"breadcrumb":{"@id":"https://infosuccess-motion-demo.vercel.app/#breadcrumb"},"about":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"BreadcrumbList","@id":"https://infosuccess-motion-demo.vercel.app/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://infosuccess-motion-demo.vercel.app/"}]},{"@type":"Person","@id":"https://infosuccess-motion-demo.vercel.app/#person","name":"高崎","jobTitle":"Webディレクター","description":"メーカーでのソフトウェア開発を経て、2011年よりWeb業界へ。SEO実務歴16年、ライティング歴15年、Web制作歴12年。SEO検定1級。","worksFor":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"ProfessionalService","@id":"https://infosuccess-motion-demo.vercel.app/#business","name":"インフォサクセス","url":"https://infosuccess-motion-demo.vercel.app/","description":"ホームページ制作、SEOコンサルティング、SEO記事の制作、AI検索対策（AIO・LLMO）、地図検索・MEOを一貫して提供します。名古屋を拠点に全国対応。","image":"https://infosuccess-motion-demo.vercel.app/img/homepage.webp","address":{"@type":"PostalAddress","addressLocality":"名古屋市","addressRegion":"愛知県","addressCountry":"JP"},"areaServed":{"@type":"Country","name":"日本"},"founder":{"@id":"https://infosuccess-motion-demo.vercel.app/#person"},"employee":{"@id":"https://infosuccess-motion-demo.vercel.app/#person"},"knowsAbout":["検索エンジン最適化","WordPress","ホームページ制作","AI検索対策","AIO","LLMO","生成AI検索","Webライティング","SEO記事制作","コンテンツマーケティング"],"priceRange":"¥100,000〜","currenciesAccepted":"JPY","availableLanguage":{"@type":"Language","name":"日本語"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-web","name":"ホームページ制作","description":"WordPressを中心に、更新しやすく問い合わせにつながる構成で設計します。スマートフォン表示と表示速度は制作時点で作り込みます。","serviceType":"Web Design","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-search","name":"SEO・記事制作","description":"SEOコンサルティングと記事執筆の両方に対応します。キーワード設計、記事構成、検索意図に沿った執筆、既存記事のリライトまで。順位ではなく、問い合わせにつながる検索流入を増やすことを目的に進めます。","serviceType":"Search Engine Optimization","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-ai","name":"AI検索対策（AIO・LLMO）","description":"ChatGPTなどのAIが情報源として引用しやすい構造にサイトを整えます。検索エンジンだけを見た対策では届かない層に接点をつくります。","serviceType":"AI Search Optimization","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Service","@id":"https://infosuccess-motion-demo.vercel.app/#service-local","name":"地図検索・MEO","description":"Googleビジネスプロフィールとサイトの情報を一致させ、地域名を含む検索に対応します。写真と投稿の運用方法もあわせてお渡しします。","serviceType":"Local SEO","provider":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"},"areaServed":{"@type":"Country","name":"日本"},"audience":{"@type":"BusinessAudience","name":"中小企業・個人事業主"}},{"@type":"Offer","name":"立ち上げ","description":"1〜3ページ。スマートフォン対応、お問い合わせフォーム、基本的なSEO設定。制作期間の目安は2〜3週間。","priceSpecification":{"@type":"PriceSpecification","price":100000,"priceCurrency":"JPY","valueAddedTaxIncluded":true},"availability":"https://schema.org/InStock","seller":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"Offer","name":"集客設計","description":"5〜8ページ。WordPressで自社更新が可能。キーワード設計にもとづく構成、お知らせ・ブログ機能、更新方法のレクチャー。制作期間の目安は4〜6週間。","priceSpecification":{"@type":"PriceSpecification","price":200000,"priceCurrency":"JPY","valueAddedTaxIncluded":true},"availability":"https://schema.org/InStock","seller":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"Offer","name":"検索・AI成長","description":"集客設計プランの内容すべてに加え、SEO記事の初期5本、AI検索向けの構造化対応、公開後3ヶ月の運用サポート。制作期間の目安は6〜10週間。","priceSpecification":{"@type":"PriceSpecification","price":300000,"priceCurrency":"JPY","valueAddedTaxIncluded":true},"availability":"https://schema.org/InStock","seller":{"@id":"https://infosuccess-motion-demo.vercel.app/#business"}},{"@type":"FAQPage","@id":"https://infosuccess-motion-demo.vercel.app/#faq","mainEntity":[{"@type":"Question","name":"ホームページを持っていませんが、何から始めればいいですか。","acceptedAnswer":{"@type":"Answer","text":"まず無料のご相談で、何を目的にするのかを整理するところから始めます。その場で制作を決めていただく必要はありません。"}},{"@type":"Question","name":"すでにあるサイトの改善だけをお願いできますか。","acceptedAnswer":{"@type":"Answer","text":"できます。現状のサイトを診断し、作り直すべきか、部分的な改善で足りるかをお伝えします。作り直しが不要な場合はその旨をお伝えします。"}},{"@type":"Question","name":"制作期間はどのくらいかかりますか。","acceptedAnswer":{"@type":"Answer","text":"ページ数によりますが、5ページ程度で4〜6週間が目安です。原稿と写真のご準備状況によって前後します。"}},{"@type":"Question","name":"写真や原稿がなくても依頼できますか。","acceptedAnswer":{"@type":"Answer","text":"可能です。原稿はヒアリングをもとにこちらで構成案を作成します。写真撮影の手配やディレクションは承っておりませんが、お手持ちの写真の活用や、商用利用できる素材からの選定はサポートします。"}},{"@type":"Question","name":"公開したあと、自分で更新できますか。","acceptedAnswer":{"@type":"Answer","text":"WordPressで制作するため、お知らせや文章の更新はご自身で行えます。公開時に操作方法をご説明します。"}},{"@type":"Question","name":"修正は何回まで対応してもらえますか。","acceptedAnswer":{"@type":"Answer","text":"文言や画像の差し替え、色や余白の微調整は回数を設けていません。デザインや構成そのものの変更は別途お見積りとなります。"}},{"@type":"Question","name":"SEOだけ、記事作成だけの依頼もできますか。","acceptedAnswer":{"@type":"Answer","text":"できます。制作を伴わないSEOコンサルティングや記事作成のみのご依頼も承っています。"}},{"@type":"Question","name":"対応エリアは名古屋だけですか。","acceptedAnswer":{"@type":"Answer","text":"全国対応しています。打ち合わせはオンラインで行うため、これまでも他県のお客様のご依頼を担当しています。"}}]}]}
 </script>
 </head>
 <body>
@@ -446,8 +495,22 @@ ul,ol{list-style:none}
       <a href="https://infosuccess.jp/blog/" rel="noopener">お役立ち情報</a>
       <a href="#contact" class="nav-cta">無料サイト診断</a>
     </nav>
+    <button class="burger" id="burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+
+<nav class="drawer" id="drawer" data-open="false" aria-label="メニュー">
+  <a href="#service">サービス</a>
+  <a href="#works">制作実績</a>
+  <a href="#flow">制作の流れ</a>
+  <a href="#price">料金</a>
+  <a href="#profile">運営者</a>
+  <a href="https://infosuccess.jp/blog/" rel="noopener">お役立ち情報</a>
+  <a href="#contact" class="nav-cta">無料サイト診断</a>
+  <p class="drawer__note">ホームページ制作 / SEO・記事制作 / AI検索対策（AIO・LLMO） / 地図検索・MEO<br>オンラインで全国対応しています。</p>
+</nav>
 
 <main id="main">
 
@@ -476,7 +539,7 @@ ul,ol{list-style:none}
           </div>
         <div class="hero__meta">
           <span>ホームページ制作</span>
-          <span>SEO</span>
+          <span>SEO・記事制作</span>
           <span>AI検索対策（AIO・LLMO）</span>
           <span>地図検索・MEO</span>
           <span>オンラインで全国対応</span>
@@ -510,7 +573,7 @@ ul,ol{list-style:none}
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Service</div>
         <h2 class="chars">対応している4つの領域</h2>
-        <p class="sec__lead">制作、SEO、AI検索対策（AIO・LLMO）、地図検索・MEO。制作と集客を切り離さず、同じ担当者が続けて見ることで判断のずれをなくします。</p>
+        <p class="sec__lead">制作、SEO・記事制作、AI検索対策（AIO・LLMO）、地図検索・MEO。制作と集客を切り離さず、同じ担当者が続けて見ることで判断のずれをなくします。</p>
       </div>
       <div class="svs">
 
@@ -527,11 +590,11 @@ ul,ol{list-style:none}
 
         <article class="sv">
           <div class="sv__media" style="--wd:.05s">
-            <div class="sv__inner"><img src="./img/seo.webp" alt="検索やアクセス解析のアイコンとノートパソコン。SEOの分析イメージ" width="1100" height="825" loading="lazy" decoding="async"></div>
+            <div class="sv__inner"><img src="./img/seo.webp" alt="検索やアクセス解析のアイコンとノートパソコン。SEOと記事制作の分析イメージ" width="1100" height="825" loading="lazy" decoding="async"></div>
           </div>
           <div class="sv__body">
-            <span class="sv__tag">SEO</span>
-            <h3>SEO</h3>
+            <span class="sv__tag">SEO / CONTENT</span>
+            <h3>SEO・記事制作</h3>
             <p>内部構造の点検から記事設計までを扱います。順位が動かない原因を、技術・内容・競合のどこにあるか切り分けたうえで、着手する順番を決めます。</p>
           </div>
         </article>
@@ -899,12 +962,12 @@ ul,ol{list-style:none}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31k</span>
+    <span class="tag">BUILD_TAG: 2026-08-31l</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31k");
+console.log("BUILD_TAG: 2026-08-31l");
 
 (function(){
   "use strict";
@@ -925,6 +988,33 @@ console.log("BUILD_TAG: 2026-08-31k");
       if (panel) panel.setAttribute("data-open", String(!open));
     });
   });
+
+  /* ハンバーガーメニューの開閉 */
+  var burger = document.getElementById("burger");
+  var drawer = document.getElementById("drawer");
+  if (burger && drawer) {
+    var setNav = function(open){
+      burger.setAttribute("aria-expanded", String(open));
+      burger.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+      drawer.setAttribute("data-open", String(open));
+      document.body.classList.toggle("nav-open", open);
+    };
+    burger.addEventListener("click", function(){
+      setNav(burger.getAttribute("aria-expanded") !== "true");
+    });
+    drawer.addEventListener("click", function(e){
+      if (e.target.tagName === "A") setNav(false);
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && burger.getAttribute("aria-expanded") === "true") {
+        setNav(false);
+        burger.focus();
+      }
+    });
+    window.addEventListener("resize", function(){
+      if (window.innerWidth > 1000 && burger.getAttribute("aria-expanded") === "true") setNav(false);
+    });
+  }
 
   /* フォーム送信（デモのため実際には送信しない） */
   var form = document.getElementById("contactForm");
