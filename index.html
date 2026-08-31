@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31p -->
+<!-- BUILD_TAG: 2026-08-31q -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -228,18 +228,18 @@ body.nav-open{overflow:hidden}
 .hero .wrap{position:relative;z-index:1}
 
 /* ---------- 背景の経路（セクション進入時に一度だけ描かれる） ---------- */
-.hero,.sec--navy,.contact{position:relative;isolation:isolate}
+.sec--navy,.contact{position:relative;isolation:isolate}
 .trace{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.trace svg{position:absolute;width:min(960px,80vw);height:auto;right:-6vw;top:8%}
+.trace svg{position:absolute;width:min(960px,80vw);height:auto;left:-7vw;top:6%}
 .trace__path{
-  fill:none;stroke:var(--blue);stroke-width:1.2;opacity:.24;
+  fill:none;stroke:var(--pale);stroke-width:1.2;opacity:.17;
   vector-effect:non-scaling-stroke;
   stroke-dasharray:1;stroke-dashoffset:1;
   transition:stroke-dashoffset 1.5s var(--ease);
 }
-.trace__path--sub{stroke-width:.8;opacity:.15;transition-delay:.14s}
+.trace__path--sub{stroke-width:.8;opacity:.10;transition-delay:.14s}
 .trace__node{
-  fill:var(--navy);opacity:0;
+  fill:var(--gold);opacity:0;
   transform:scale(.3);transform-box:fill-box;transform-origin:center;
   transition:opacity .45s ease,transform .45s var(--ease);
 }
@@ -251,12 +251,8 @@ body.nav-open{overflow:hidden}
 .is-in .trace__node.n4{transition-delay:.96s}
 .is-in .trace__node.n5{transition-delay:1.18s}
 
-.sec--navy .trace svg,.contact .trace svg{left:-7vw;right:auto;top:6%}
-.sec--navy .trace__path,.contact .trace__path{stroke:var(--pale);opacity:.17}
-.sec--navy .trace__path--sub,.contact .trace__path--sub{opacity:.10}
-.sec--navy .trace__node,.contact .trace__node{fill:var(--gold)}
 
-.hero > .wrap,.sec--navy > .wrap,.contact > .wrap{position:relative;z-index:1}
+.sec--navy > .wrap,.contact > .wrap{position:relative;z-index:1}
 
 /* ---------- section ---------- */
 .sec{position:relative;padding:130px 0;overflow:hidden}
@@ -457,9 +453,7 @@ body.nav-open{overflow:hidden}
 }
 @media (max-width:768px){
   body{font-size:15px}
-  .trace svg{width:150vw;right:-56vw;top:16%}
-  .sec--navy .trace svg,.contact .trace svg{left:-56vw;top:12%}
-  .trace__path{opacity:.17}
+  .trace svg{width:150vw;left:-56vw;top:12%}
   :root{--hd-h:62px}
   .hero{padding:120px 0 84px}
   .sec{padding:86px 0}
@@ -530,17 +524,6 @@ body.nav-open{overflow:hidden}
 
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero" id="hero">
-    <div class="trace" aria-hidden="true">
-      <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet">
-        <path class="trace__path" pathLength="1" d="M80 470 H235 V360 H395 V255 H545 V345 H700 V190 H840"/>
-        <path class="trace__path trace__path--sub" pathLength="1" d="M235 360 V520 H515 V455 H760"/>
-        <rect class="trace__node n1" x="229" y="354" width="12" height="12"/>
-        <rect class="trace__node n2" x="389" y="249" width="12" height="12"/>
-        <rect class="trace__node n3" x="539" y="339" width="12" height="12"/>
-        <rect class="trace__node n4" x="694" y="184" width="12" height="12"/>
-        <rect class="trace__node n5" x="754" y="449" width="12" height="12"/>
-      </svg>
-    </div>
     <div class="wrap">
       <div class="hero__body">
           <h1>作るだけで終わらない。<br><em class="ac">見つけてもらい、選ばれる</em>Webへ。</h1>
@@ -999,12 +982,12 @@ body.nav-open{overflow:hidden}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31p</span>
+    <span class="tag">BUILD_TAG: 2026-08-31q</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31p");
+console.log("BUILD_TAG: 2026-08-31q");
 
 (function(){
   "use strict";
@@ -1119,18 +1102,6 @@ console.log("BUILD_TAG: 2026-08-31p");
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
     targets.forEach(function(t){ io.observe(t); });
-  }
-
-  /* ヒーローは監視対象外のため、描画開始後に自前で発火させる */
-  var heroSec = document.getElementById("hero");
-  if (heroSec) {
-    if (reduce) {
-      heroSec.classList.add("is-in");
-    } else {
-      requestAnimationFrame(function(){
-        requestAnimationFrame(function(){ heroSec.classList.add("is-in"); });
-      });
-    }
   }
 
   var ticking = false;
