@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31t -->
+<!-- BUILD_TAG: 2026-08-31u -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -272,11 +272,36 @@ body.nav-open{overflow:hidden}
 }
 .is-in.stg > *,.is-in .stg > *{opacity:1;transform:none}
 
-/* ---------- 課題カード ---------- */
-.issues{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.issue{background:var(--bg);padding:38px 30px;min-height:172px;display:flex;flex-direction:column;gap:16px}
-.issue__no{font-family:"Archivo",sans-serif;font-size:13px;color:var(--blue);letter-spacing:.1em}
-.issue p{font-size:17px;font-weight:500;line-height:1.75;color:var(--navy)}
+/* ---------- 課題セクション ---------- */
+.sec__head--center{text-align:center;padding-top:0;margin-bottom:52px}
+.sec__head--center h2{
+  font-family:"Shippori Mincho",serif;font-weight:600;
+  font-size:clamp(27px,4vw,46px);letter-spacing:.07em;line-height:1.45;
+}
+.sec__head--center .sec__lead{margin:0 auto;max-width:40em}
+.head__rule{display:block;width:64px;height:2px;background:var(--gold-ink);margin:24px auto 22px}
+
+.deco{position:absolute;top:0;pointer-events:none;z-index:0}
+.deco--l{left:0;width:min(250px,22vw);height:min(200px,18vw);background:var(--navy);clip-path:polygon(0 0,100% 0,0 100%)}
+.deco--r{right:0;width:min(420px,34vw);height:min(300px,26vw);background:var(--pale);clip-path:polygon(100% 0,100% 100%,0 0)}
+#problem .wrap{position:relative;z-index:1}
+
+.issues{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.issue{
+  position:relative;background:#fff;border:1px solid #C6D2DE;
+  padding:34px 30px 38px;
+}
+.issue__no{
+  display:block;font-family:"Shippori Mincho",serif;font-weight:500;
+  font-size:34px;color:var(--navy);line-height:1;letter-spacing:.03em;
+}
+.issue__rule{display:block;width:52px;height:1px;background:var(--gold-ink);margin:16px 0 28px}
+.issue__icon{position:absolute;top:32px;right:28px;width:54px;height:54px}
+.issue__icon svg{
+  width:100%;height:100%;fill:none;stroke:var(--gold-ink);
+  stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;
+}
+.issue p{font-size:clamp(16px,1.5vw,18.5px);font-weight:700;line-height:1.8;color:var(--navy)}
 
 /* ---------- サービス（レイヤーワイプ） ---------- */
 .svs{display:grid;gap:70px}
@@ -465,7 +490,7 @@ body.nav-open{overflow:hidden}
   .works{grid-template-columns:repeat(2,1fr);gap:20px}
   .profile{grid-template-columns:1fr;gap:36px}
   .contact__grid{grid-template-columns:1fr;gap:40px}
-  .issues{grid-template-columns:repeat(2,1fr)}
+  .issues{grid-template-columns:repeat(2,1fr);gap:20px}
   .plans{grid-template-columns:1fr;gap:18px}
   .plan--rec{margin-block:0}
   .sv{grid-template-columns:1fr;gap:26px}
@@ -481,7 +506,8 @@ body.nav-open{overflow:hidden}
   .btn{min-width:0;flex:1 1 100%}
 }
 @media (max-width:480px){
-  .issues{grid-template-columns:1fr}
+  .issues{grid-template-columns:1fr;gap:18px}
+  .issue__icon{width:44px;height:44px;top:28px;right:24px}
   .works{grid-template-columns:1fr;gap:18px}
   .dsteps div{grid-template-columns:1fr;gap:6px}
   .issue{min-height:0;padding:28px 22px}
@@ -569,19 +595,51 @@ body.nav-open{overflow:hidden}
 
   <!-- ISSUE：背景英字スライドイン＋見出し1文字ずつ＋カード順次 -->
   <section class="sec obs" id="problem">
+    <span class="deco deco--l" aria-hidden="true"></span>
+    <span class="deco deco--r" aria-hidden="true"></span>
     <div class="wrap">
-      <div class="sec__head">
-        <div class="bgtext" aria-hidden="true">Issue</div>
-        <h2 class="chars">よくいただくご相談</h2>
-        <p class="sec__lead">下のいずれかに当てはまる場合、原因は制作物ではなく設計の順番にあることがほとんどです。</p>
+      <div class="sec__head sec__head--center">
+        <h2 class="chars">こんなお悩みはありませんか</h2>
+        <span class="head__rule" aria-hidden="true"></span>
+        <p class="sec__lead">ホームページ制作や集客のご相談では、次のようなお悩みをよく伺います。</p>
       </div>
       <ul class="issues stg">
-        <li class="issue"><span class="issue__no">01</span><p>サイトはあるが問い合わせが来ない</p></li>
-        <li class="issue"><span class="issue__no">02</span><p>制作会社に頼んだが自分で更新できない</p></li>
-        <li class="issue"><span class="issue__no">03</span><p>記事を書いても検索順位が上がらない</p></li>
-        <li class="issue"><span class="issue__no">04</span><p>生成AIに聞いても自社が出てこない</p></li>
-        <li class="issue"><span class="issue__no">05</span><p>地図検索で競合より下に表示される</p></li>
-        <li class="issue"><span class="issue__no">06</span><p>何から手をつけるべきか判断できない</p></li>
+        <li class="issue">
+          <span class="issue__no">01</span>
+          <span class="issue__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 7h15v11h-15z"/><path d="M2.5 7l7.5 5.6L17.5 7"/><path d="M19.5 4.2l1.8-1.6M21 7.2h2.2M19.8 9.6l1.9 1.4"/></svg></span>
+          <span class="issue__rule" aria-hidden="true"></span>
+          <p>サイトはあるが<br>問い合わせが来ない</p>
+        </li>
+        <li class="issue">
+          <span class="issue__no">02</span>
+          <span class="issue__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 4h19v12h-19z"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="10" r="2.6"/><path d="M12 5.6v1.4M12 13v1.4M16.4 10H15M9 10H7.6M15.1 6.9l-1 1M9.9 12.1l-1 1M15.1 13.1l-1-1M9.9 7.9l-1-1"/></svg></span>
+          <span class="issue__rule" aria-hidden="true"></span>
+          <p>制作会社に頼んだが<br>自分で更新できない</p>
+        </li>
+        <li class="issue">
+          <span class="issue__no">03</span>
+          <span class="issue__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 19.5h11"/><path d="M3.5 19.5v-4M7.5 19.5v-7M11.5 19.5v-3"/><path d="M4 11.5l4.5-4.5 3 2.5 6-6"/><path d="M14 3.5h3.5V7"/><circle cx="17" cy="16" r="3.2"/><path d="M19.4 18.4l2.6 2.6"/></svg></span>
+          <span class="issue__rule" aria-hidden="true"></span>
+          <p>記事を書いても<br>検索順位が上がらない</p>
+        </li>
+        <li class="issue">
+          <span class="issue__no">04</span>
+          <span class="issue__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4.5h18v12H12l-5 4v-4H3z"/><path d="M8.6 13l2.2-6 2.2 6M9.4 11.2h3.3M16 7v6"/></svg></span>
+          <span class="issue__rule" aria-hidden="true"></span>
+          <p>生成AIに聞いても<br>自社が出てこない</p>
+        </li>
+        <li class="issue">
+          <span class="issue__no">05</span>
+          <span class="issue__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 6.5l6-2.5 7 3 6-2.5v13l-6 2.5-7-3-6 2.5z"/><path d="M8.5 4v6M15.5 10.5v9"/><path d="M12 4.5a3.4 3.4 0 013.4 3.4c0 2.5-3.4 6.1-3.4 6.1s-3.4-3.6-3.4-6.1A3.4 3.4 0 0112 4.5z" fill="#fff"/><circle cx="12" cy="7.9" r="1.3"/></svg></span>
+          <span class="issue__rule" aria-hidden="true"></span>
+          <p>地図検索で<br>競合より下に表示される</p>
+        </li>
+        <li class="issue">
+          <span class="issue__no">06</span>
+          <span class="issue__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5v19"/><path d="M4.5 6h13l2.5 2.5L17.5 11h-13z"/><path d="M19.5 13h-13L4 15.5 6.5 18h13z"/></svg></span>
+          <span class="issue__rule" aria-hidden="true"></span>
+          <p>何から手をつけるべきか<br>判断できない</p>
+        </li>
       </ul>
     </div>
   </section>
@@ -998,12 +1056,12 @@ body.nav-open{overflow:hidden}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31t</span>
+    <span class="tag">BUILD_TAG: 2026-08-31u</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31t");
+console.log("BUILD_TAG: 2026-08-31u");
 
 (function(){
   "use strict";
