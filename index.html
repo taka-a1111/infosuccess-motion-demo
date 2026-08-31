@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31b -->
+<!-- BUILD_TAG: 2026-08-31c -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>モーション検証用デモ | インフォサクセス</title>
@@ -102,7 +102,7 @@ ul,ol{list-style:none}
 .sec{position:relative;padding:130px 0;overflow:hidden}
 .sec--pale{background:var(--pale)}
 .sec--navy{background:var(--navy);color:#fff}
-.sec__head{position:relative;margin-bottom:66px}
+.sec__head{position:relative;margin-bottom:66px;padding-top:clamp(54px,8.5vw,112px)}
 .sec h2{
   font-size:clamp(24px,3.4vw,38px);font-weight:700;line-height:1.5;
   color:var(--navy);position:relative;z-index:2;
@@ -114,17 +114,18 @@ ul,ol{list-style:none}
 /* 背景の巨大英字 */
 .bgtext{
   position:absolute;z-index:1;pointer-events:none;user-select:none;
+  top:0;
   font-family:"Archivo",sans-serif;font-weight:700;
-  font-size:clamp(84px,15vw,190px);line-height:1;letter-spacing:-.02em;
+  font-size:clamp(60px,9.5vw,132px);line-height:.82;letter-spacing:-.02em;
   color:var(--navy);opacity:0;
   transition:transform 1.1s var(--ease),opacity 1.1s var(--ease);
   will-change:transform;
 }
-.bgtext--l{left:-.06em;top:-.32em;transform:translateX(-14%)}
-.bgtext--r{right:-.06em;top:-.32em;transform:translateX(14%)}
-.is-in .bgtext{opacity:.07;transform:translateX(0)}
+.bgtext--l{left:-.04em;transform:translateX(-12%)}
+.bgtext--r{right:-.04em;transform:translateX(12%)}
+.is-in .bgtext{opacity:.08;transform:translateX(0)}
 .sec--navy .bgtext{color:#fff}
-.sec--navy.is-in .bgtext{opacity:.11}
+.sec--navy.is-in .bgtext{opacity:.13}
 
 /* 見出しの1文字ずつスライドアップ */
 .chars{overflow:hidden;padding-bottom:.14em}
@@ -241,7 +242,7 @@ ul,ol{list-style:none}
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
   .chars .ch,.stg > *{opacity:1 !important;transform:none !important}
-  .bgtext{opacity:.07 !important;transform:none !important}
+  .bgtext{opacity:.08 !important;transform:none !important}
   .sv__media::after{transform:scaleX(0) !important}
   .sv__inner{transform:none !important}
 }
@@ -266,9 +267,9 @@ ul,ol{list-style:none}
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero">
     <div class="wrap">
-      <h1>ホームページを、<br>作る人と育てる人で分けない。</h1>
+      <h1>制作会社とSEO会社を、<br>行き来しなくていい。</h1>
       <div class="hero__rule"></div>
-      <p>制作・SEO・AI検索対策・地図検索まで、公開したあとの運用も含めて、最初から最後まで同じ担当が見ます。引き継ぎで意図が抜け落ちることがありません。</p>
+      <p>見た目を変えても問い合わせは増えません。制作・SEO・AI検索対策・地図検索までを窓口ひとつで引き受け、公開したあとの運用まで同じ担当が見ます。</p>
       <div class="btns">
         <a href="#plan" class="btn">
           <span class="btn__t btn__t--top">料金を見る</span>
@@ -404,12 +405,12 @@ ul,ol{list-style:none}
       <div class="sec__head">
         <div class="bgtext bgtext--r">Plan</div>
         <h2 class="chars">料金の目安</h2>
-        <p class="sec__lead">※ このデモの金額はレイアウト確認用のダミーです。本番では実際の料金に差し替えます。</p>
+        <p class="sec__lead">ページ数と機能で3つに分けています。着手前にお見積りをお出しし、そこまでは費用をいただきません。</p>
       </div>
       <div class="plans stg">
         <div class="plan">
           <h3>ライトプラン</h3>
-          <p class="plan__price"><b>00</b>万円〜</p>
+          <p class="plan__price"><b>18</b>万円〜</p>
           <ul>
             <li>1〜3ページ</li>
             <li>スマートフォン対応</li>
@@ -419,7 +420,7 @@ ul,ol{list-style:none}
         </div>
         <div class="plan">
           <h3>スタンダードプラン</h3>
-          <p class="plan__price"><b>00</b>万円〜</p>
+          <p class="plan__price"><b>38</b>万円〜</p>
           <ul>
             <li>5〜10ページ</li>
             <li>ブログ投稿機能</li>
@@ -430,7 +431,7 @@ ul,ol{list-style:none}
         </div>
         <div class="plan">
           <h3>運用プラン</h3>
-          <p class="plan__price"><b>00</b>万円/月〜</p>
+          <p class="plan__price"><b>5</b>万円/月〜</p>
           <ul>
             <li>記事制作</li>
             <li>順位とAI参照状況の確認</li>
@@ -466,12 +467,12 @@ ul,ol{list-style:none}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31b</span>
+    <span class="tag">BUILD_TAG: 2026-08-31c</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31b");
+console.log("BUILD_TAG: 2026-08-31c");
 
 (function(){
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
