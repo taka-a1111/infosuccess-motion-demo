@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01o -->
+<!-- BUILD_TAG: 2026-09-01p -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -422,11 +422,11 @@ body.nav-open{overflow:hidden}
 
 /* ---------- 制作実績 ---------- */
 .works{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.work{
-  position:relative;background:#fff;border:1px solid var(--line);
-  padding:78px 30px 38px;overflow:hidden;
-}
-.work__no{position:absolute;top:0;left:0;width:104px;height:104px;pointer-events:none}
+.work{position:relative;background:#fff;border:1px solid var(--line);overflow:hidden}
+.work__photo{position:relative;aspect-ratio:16/10;background:var(--pale);display:grid;place-items:center;overflow:hidden}
+.work__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.work__ph{font-family:"Archivo",sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;color:#9BAEC0}
+.work__no{position:absolute;top:0;left:0;width:104px;height:104px;pointer-events:none;z-index:1}
 .work__no::before{
   content:"";position:absolute;inset:0;background:var(--navy);
   clip-path:polygon(0 0,100% 0,0 100%);
@@ -435,17 +435,13 @@ body.nav-open{overflow:hidden}
   position:absolute;top:13px;left:17px;color:#fff;
   font-family:"Shippori Mincho",serif;font-size:25px;font-weight:500;letter-spacing:.02em;
 }
-.work__icon{position:absolute;top:26px;right:26px;width:46px;height:46px}
-.work__icon svg{
-  width:100%;height:100%;fill:none;stroke:var(--gold-ink);
-  stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;
-}
+.work__body{padding:28px 30px 36px}
 .work__cat{
   font-family:"Archivo",sans-serif;font-size:12.5px;font-weight:600;
   letter-spacing:.14em;color:var(--gold-ink);margin-bottom:14px;
 }
-.work h3{font-size:clamp(19px,1.8vw,23px);font-weight:700;color:var(--navy);margin-bottom:20px;line-height:1.5}
-.work__rule{display:block;width:52px;height:1px;background:var(--gold);margin-bottom:22px}
+.work h3{font-size:clamp(19px,1.8vw,23px);font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.5}
+.work__rule{display:block;width:56px;height:1px;background:var(--gold-ink);margin-bottom:22px}
 .work p{font-size:14.5px;color:var(--muted);line-height:2}
 
 /* ---------- 運営者 ---------- */
@@ -1173,52 +1169,76 @@ body.nav-open{overflow:hidden}
       </div>
       <ul class="works stg">
         <li class="work">
-          <span class="work__no" aria-hidden="true"><span>01</span></span>
-          <span class="work__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 21V6l9-3v18"/><path d="M16 11h4v10"/><path d="M4 21h17"/><path d="M10 8h2M10 11.5h2M10 15h2M18.5 14.5h.01M18.5 17.5h.01"/></svg></span>
-          <p class="work__cat">CORPORATE / WEB</p>
-          <h3>スポーツ関連事業</h3>
-          <span class="work__rule" aria-hidden="true"></span>
-          <p>スポーツ経済圏を軸にした事業のコーポレートサイトを新規制作。課題提起から事業内容、選ばれる理由、導入フローまでを一本の導線として設計しました。</p>
+          <div class="work__photo">
+            <span class="work__ph" aria-hidden="true">PHOTO 01</span>
+            <span class="work__no" aria-hidden="true"><span>01</span></span>
+          </div>
+          <div class="work__body">
+            <p class="work__cat">CORPORATE / WEB</p>
+            <h3>スポーツ関連事業</h3>
+            <span class="work__rule" aria-hidden="true"></span>
+            <p>スポーツ経済圏を軸にした事業のコーポレートサイトを新規制作。課題提起から事業内容、選ばれる理由、導入フローまでを一本の導線として設計しました。</p>
+          </div>
         </li>
         <li class="work">
-          <span class="work__no" aria-hidden="true"><span>02</span></span>
-          <span class="work__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.4 9.6a2.1 2.1 0 013-3l.6.6.6-.6a2.1 2.1 0 013 3L16 13.2 12.4 9.6z"/><path d="M3 15.5l3-1.3c.7-.3 1.5-.2 2.1.2l2.4 1.6h3.1a1.4 1.4 0 010 2.8h-3"/><path d="M10.6 18.8l7.2-2a2 2 0 012.2 3l-6.3 3.2a3 3 0 01-2.4.1L3 20.4"/></svg></span>
-          <p class="work__cat">CARE / WORDPRESS</p>
-          <h3>介護老人保健施設</h3>
-          <span class="work__rule" aria-hidden="true"></span>
-          <p>WordPressのカスタムテーマで制作。ご家族が安心して問い合わせできる導線と、職員の方がご自身で更新できる構成にしています。</p>
+          <div class="work__photo">
+            <span class="work__ph" aria-hidden="true">PHOTO 02</span>
+            <span class="work__no" aria-hidden="true"><span>02</span></span>
+          </div>
+          <div class="work__body">
+            <p class="work__cat">CARE / WORDPRESS</p>
+            <h3>介護老人保健施設</h3>
+            <span class="work__rule" aria-hidden="true"></span>
+            <p>WordPressのカスタムテーマで制作。ご家族が安心して問い合わせできる導線と、職員の方がご自身で更新できる構成にしています。</p>
+          </div>
         </li>
         <li class="work">
-          <span class="work__no" aria-hidden="true"><span>03</span></span>
-          <span class="work__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 7.6L12 4l8.5 3.6v9L12 20.5 3.5 16.6z"/><path d="M3.5 7.6L12 11.3l8.5-3.7M12 11.3v9.2"/><path d="M7.7 5.8l8.5 3.7v3"/></svg></span>
-          <p class="work__cat">TRADING / WORDPRESS</p>
-          <h3>水産物輸入卸</h3>
-          <span class="work__rule" aria-hidden="true"></span>
-          <p>取扱商品と企業信用が伝わる構成で設計。法人取引の問い合わせにつながる導線で構築しました。</p>
+          <div class="work__photo">
+            <span class="work__ph" aria-hidden="true">PHOTO 03</span>
+            <span class="work__no" aria-hidden="true"><span>03</span></span>
+          </div>
+          <div class="work__body">
+            <p class="work__cat">TRADING / WORDPRESS</p>
+            <h3>水産物輸入卸</h3>
+            <span class="work__rule" aria-hidden="true"></span>
+            <p>取扱商品と企業信用が伝わる構成で設計。法人取引の問い合わせにつながる導線で構築しました。</p>
+          </div>
         </li>
         <li class="work">
-          <span class="work__no" aria-hidden="true"><span>04</span></span>
-          <span class="work__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 4.5l5 5M14.5 14.5l5 5"/><path d="M9.5 9.5a3.4 3.4 0 01-4.6-4.4l1.9 1.9 2-.4.4-2-1.9-1.9A3.4 3.4 0 0111.8 8"/><path d="M19.5 4.5l-5 5M9.5 14.5l-5 5"/><path d="M14.5 14.5a3.4 3.4 0 004.6 4.4l-1.9-1.9-2 .4-.4 2 1.9 1.9"/></svg></span>
-          <p class="work__cat">CONSTRUCTION / WEB</p>
-          <h3>電気設備・空調工事</h3>
-          <span class="work__rule" aria-hidden="true"></span>
-          <p>施工領域と対応力が一目で伝わる構成に整理。施工内容と対応エリアをまとめ、採用にも使える形にしています。</p>
+          <div class="work__photo">
+            <span class="work__ph" aria-hidden="true">PHOTO 04</span>
+            <span class="work__no" aria-hidden="true"><span>04</span></span>
+          </div>
+          <div class="work__body">
+            <p class="work__cat">CONSTRUCTION / WEB</p>
+            <h3>電気設備・空調工事</h3>
+            <span class="work__rule" aria-hidden="true"></span>
+            <p>施工領域と対応力が一目で伝わる構成に整理。施工内容と対応エリアをまとめ、採用にも使える形にしています。</p>
+          </div>
         </li>
         <li class="work">
-          <span class="work__no" aria-hidden="true"><span>05</span></span>
-          <span class="work__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.5 3.5l6.5 3-3.6 5.4-5.3-3.6z"/><path d="M11.1 8.3l-3.6 5.4"/><path d="M3 16h18v5H3z"/><path d="M3 18.5h18M9 16v2.5M15 18.5V21M9 18.5V21"/></svg></span>
-          <p class="work__cat">CONSTRUCTION / WEB</p>
-          <h3>建具工事・内装施工</h3>
-          <span class="work__rule" aria-hidden="true"></span>
-          <p>理念・事業内容・採用・施工事例・ブログまでを設計し、職人の技術が伝わる写真主体のレイアウトで構築しました。</p>
+          <div class="work__photo">
+            <span class="work__ph" aria-hidden="true">PHOTO 05</span>
+            <span class="work__no" aria-hidden="true"><span>05</span></span>
+          </div>
+          <div class="work__body">
+            <p class="work__cat">CONSTRUCTION / WEB</p>
+            <h3>建具工事・内装施工</h3>
+            <span class="work__rule" aria-hidden="true"></span>
+            <p>理念・事業内容・採用・施工事例・ブログまでを設計し、職人の技術が伝わる写真主体のレイアウトで構築しました。</p>
+          </div>
         </li>
         <li class="work">
-          <span class="work__no" aria-hidden="true"><span>06</span></span>
-          <span class="work__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.2"/><circle cx="17" cy="10" r="2.4"/><path d="M3.5 20c0-3.3 2.7-5.4 6-5.4s6 2.1 6 5.4"/><path d="M17 14.6c2.1 0 3.9 1.4 3.9 3.6"/></svg></span>
-          <p class="work__cat">NPO / WORDPRESS</p>
-          <h3>地域子育て支援センター</h3>
-          <span class="work__rule" aria-hidden="true"></span>
-          <p>一時預かり・親子遊び広場・育児相談といった、利用者が探す情報へ最短で届く設計。活動報告を継続発信できる形にしています。</p>
+          <div class="work__photo">
+            <span class="work__ph" aria-hidden="true">PHOTO 06</span>
+            <span class="work__no" aria-hidden="true"><span>06</span></span>
+          </div>
+          <div class="work__body">
+            <p class="work__cat">NPO / WORDPRESS</p>
+            <h3>地域子育て支援センター</h3>
+            <span class="work__rule" aria-hidden="true"></span>
+            <p>一時預かり・親子遊び広場・育児相談といった、利用者が探す情報へ最短で届く設計。活動報告を継続発信できる形にしています。</p>
+          </div>
         </li>
       </ul>
       <div class="media">
@@ -1691,7 +1711,7 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01o</span>
+      <span>BUILD_TAG: 2026-09-01p</span>
     </div>
   </div>
 </footer>
@@ -1717,7 +1737,7 @@ body.nav-open{overflow:hidden}
 </div>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01o");
+console.log("BUILD_TAG: 2026-09-01p");
 
 (function(){
   "use strict";
