@@ -1,0 +1,4 @@
+# 検証用デモサイトです。infosuccess.jp と内容が重複するため、全ての巡回を拒否します。
+# 本番へ移す際は、この内容を Allow に書き換え、Sitemap 行を本番URLに変更してください。
+User-agent: *
+Disallow: /
