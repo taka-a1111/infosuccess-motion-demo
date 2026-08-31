@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31q -->
+<!-- BUILD_TAG: 2026-08-31r -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -227,33 +227,6 @@ body.nav-open{overflow:hidden}
 .hero{position:relative}
 .hero .wrap{position:relative;z-index:1}
 
-/* ---------- 背景の経路（セクション進入時に一度だけ描かれる） ---------- */
-.sec--navy,.contact{position:relative;isolation:isolate}
-.trace{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.trace svg{position:absolute;width:min(960px,80vw);height:auto;left:-7vw;top:6%}
-.trace__path{
-  fill:none;stroke:var(--pale);stroke-width:1.2;opacity:.17;
-  vector-effect:non-scaling-stroke;
-  stroke-dasharray:1;stroke-dashoffset:1;
-  transition:stroke-dashoffset 1.5s var(--ease);
-}
-.trace__path--sub{stroke-width:.8;opacity:.10;transition-delay:.14s}
-.trace__node{
-  fill:var(--gold);opacity:0;
-  transform:scale(.3);transform-box:fill-box;transform-origin:center;
-  transition:opacity .45s ease,transform .45s var(--ease);
-}
-.is-in .trace__path{stroke-dashoffset:0}
-.is-in .trace__node{opacity:1;transform:scale(1)}
-.is-in .trace__node.n1{transition-delay:.30s}
-.is-in .trace__node.n2{transition-delay:.52s}
-.is-in .trace__node.n3{transition-delay:.74s}
-.is-in .trace__node.n4{transition-delay:.96s}
-.is-in .trace__node.n5{transition-delay:1.18s}
-
-
-.sec--navy > .wrap,.contact > .wrap{position:relative;z-index:1}
-
 /* ---------- section ---------- */
 .sec{position:relative;padding:130px 0;overflow:hidden}
 .sec--pale{background:var(--pale)}
@@ -453,7 +426,6 @@ body.nav-open{overflow:hidden}
 }
 @media (max-width:768px){
   body{font-size:15px}
-  .trace svg{width:150vw;left:-56vw;top:12%}
   :root{--hd-h:62px}
   .hero{padding:120px 0 84px}
   .sec{padding:86px 0}
@@ -476,8 +448,6 @@ body.nav-open{overflow:hidden}
   .bgtext{opacity:.08 !important;transform:none !important}
   .sv__media::after{transform:scaleX(0) !important}
   .sv__inner{transform:none !important}
-  .trace__path{transition:none !important;stroke-dashoffset:0 !important}
-  .trace__node{transition:none !important;opacity:1 !important;transform:none !important}
   .drawer{transition:none !important}
   .drawer[data-open="true"]{opacity:1 !important;visibility:visible !important;transform:none !important}
 }
@@ -673,17 +643,6 @@ body.nav-open{overflow:hidden}
 
   <!-- FLOW：順序があるので番号を使う -->
   <section class="sec sec--navy obs" id="flow">
-    <div class="trace" aria-hidden="true">
-      <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet">
-        <path class="trace__path" pathLength="1" d="M80 470 H235 V360 H395 V255 H545 V345 H700 V190 H840"/>
-        <path class="trace__path trace__path--sub" pathLength="1" d="M235 360 V520 H515 V455 H760"/>
-        <rect class="trace__node n1" x="229" y="354" width="12" height="12"/>
-        <rect class="trace__node n2" x="389" y="249" width="12" height="12"/>
-        <rect class="trace__node n3" x="539" y="339" width="12" height="12"/>
-        <rect class="trace__node n4" x="694" y="184" width="12" height="12"/>
-        <rect class="trace__node n5" x="754" y="449" width="12" height="12"/>
-      </svg>
-    </div>
     <div class="wrap">
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Flow</div>
@@ -897,17 +856,6 @@ body.nav-open{overflow:hidden}
 
   <!-- CONTACT -->
   <section class="contact obs" id="contact">
-    <div class="trace" aria-hidden="true">
-      <svg viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet">
-        <path class="trace__path" pathLength="1" d="M80 470 H235 V360 H395 V255 H545 V345 H700 V190 H840"/>
-        <path class="trace__path trace__path--sub" pathLength="1" d="M235 360 V520 H515 V455 H760"/>
-        <rect class="trace__node n1" x="229" y="354" width="12" height="12"/>
-        <rect class="trace__node n2" x="389" y="249" width="12" height="12"/>
-        <rect class="trace__node n3" x="539" y="339" width="12" height="12"/>
-        <rect class="trace__node n4" x="694" y="184" width="12" height="12"/>
-        <rect class="trace__node n5" x="754" y="449" width="12" height="12"/>
-      </svg>
-    </div>
     <div class="wrap">
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Contact</div>
@@ -982,12 +930,12 @@ body.nav-open{overflow:hidden}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31q</span>
+    <span class="tag">BUILD_TAG: 2026-08-31r</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31q");
+console.log("BUILD_TAG: 2026-08-31r");
 
 (function(){
   "use strict";
