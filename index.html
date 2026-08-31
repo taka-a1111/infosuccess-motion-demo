@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01g -->
+<!-- BUILD_TAG: 2026-09-01h -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -578,12 +578,120 @@ body.nav-open{overflow:hidden}
 }
 .replay:hover{background:#fff;color:var(--navy)}
 
+
+/* ---------- トラストバー ---------- */
+.trust{background:var(--pale);border-block:1px solid var(--line);padding:44px 0}
+.trust__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+.trust__item{background:var(--pale);padding:6px 20px;text-align:center}
+.trust__ico{display:block;width:30px;height:30px;margin:0 auto 14px}
+.trust__ico svg{width:100%;height:100%;fill:none;stroke:var(--gold-ink);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.trust__v{font-family:"Shippori Mincho",serif;font-weight:600;font-size:clamp(30px,3.4vw,42px);color:var(--navy);line-height:1}
+.trust__v small{font-size:.42em;margin-left:5px;font-weight:500}
+.trust__l{font-size:13px;color:var(--muted);margin-top:12px;letter-spacing:.04em}
+
+/* ---------- 注記ボックス ---------- */
+.note-box{
+  display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+  border:1px solid var(--navy);background:#fff;padding:24px 28px;margin-top:40px;
+}
+.note-box__ico{width:26px;height:26px}
+.note-box__ico svg{width:100%;height:100%;fill:none;stroke:var(--navy);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.note-box p{font-size:15px;color:var(--navy);line-height:1.9}
+.note-box em{font-style:normal;font-weight:700;border-bottom:2px solid var(--gold)}
+
+/* ---------- 検索の比較表 ---------- */
+.cmp{margin-top:64px;border:1px solid var(--line)}
+.cmp__head,.cmp__row{display:grid;grid-template-columns:1.1fr 1fr 1fr}
+.cmp__head{background:var(--navy);color:#fff}
+.cmp__head span{padding:16px 20px;font-size:13.5px;letter-spacing:.06em;font-weight:700}
+.cmp__head .is-ai{color:var(--gold)}
+.cmp__row{border-top:1px solid var(--line)}
+.cmp__row > *{padding:18px 20px;font-size:14.5px;line-height:1.7}
+.cmp__k{background:#F4F7F9;color:var(--navy);font-weight:700;display:flex;align-items:center;gap:12px}
+.cmp__k svg{flex:0 0 auto;width:20px;height:20px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.cmp__ai{background:#FBF7F0;color:var(--navy)}
+.cmp-note{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
+  margin-top:18px;font-size:14px;color:var(--navy);
+}
+.cmp-note span{
+  display:grid;place-items:center;width:24px;height:24px;
+  background:var(--navy);color:#fff;font-size:14px;font-weight:700;
+}
+
+/* ---------- 支援実績のグラフ ---------- */
+.growth{margin-top:64px;display:grid;gap:22px}
+.growth__row{display:grid;grid-template-columns:150px 1fr 92px;gap:20px;align-items:center}
+.growth__l{font-size:14px;color:var(--navy);font-weight:700;line-height:1.5}
+.growth__l small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:3px}
+.growth__bar{height:22px;background:var(--pale)}
+.growth__bar i{display:block;height:100%;width:var(--w);background:#C3D3E2}
+.growth__row.is-a .growth__bar i{background:var(--navy)}
+.growth__v{font-family:"Shippori Mincho",serif;font-size:24px;color:var(--navy);text-align:right}
+.growth__row.is-a .growth__v{color:var(--blue)}
+
+/* ---------- 執筆実績 ---------- */
+.media{margin-top:64px;border-top:1px solid var(--line);padding-top:46px}
+.media h3{font-family:"Shippori Mincho",serif;font-weight:600;font-size:24px;color:var(--navy);letter-spacing:.06em}
+.media__sub{font-size:14px;color:var(--muted);margin:8px 0 26px}
+.media li{position:relative;padding-left:24px;font-size:15px;color:var(--text);margin-bottom:12px}
+.media li::before{content:"";position:absolute;left:0;top:.75em;width:12px;height:1px;background:var(--gold-ink)}
+.media__note{margin-top:22px;font-size:13.5px;color:var(--muted);line-height:1.95}
+
+/* ---------- セクション内CTA ---------- */
+.icta{
+  display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+  background:var(--navy);color:#fff;padding:38px 40px;margin-top:64px;
+}
+.icta p{font-family:"Shippori Mincho",serif;font-size:clamp(18px,2vw,23px);line-height:1.7;letter-spacing:.04em}
+.icta .btn{border-color:#fff;background:#fff;color:var(--navy)}
+
+/* ---------- 選ばれている理由 ---------- */
+.reasons{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.reason{background:#fff;display:grid;grid-template-columns:110px 1fr;gap:28px;padding:34px 34px}
+.reason__n{font-family:"Shippori Mincho",serif;font-size:38px;color:var(--gold-ink);line-height:1}
+.reason h3{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.reason p{font-size:15px;color:var(--muted);line-height:1.95}
+
+/* ---------- お約束 ---------- */
+.assure{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.assure__item{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);padding:34px 30px 36px}
+.assure__n{font-family:"Shippori Mincho",serif;font-size:30px;color:var(--gold-ink);line-height:1;display:block;margin-bottom:18px}
+.assure h3{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.6}
+.assure p{font-size:14.5px;color:var(--muted);line-height:1.95}
+
+/* ---------- 追従の導線 ---------- */
+.side-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:70;display:grid}
+.side-cta a{
+  display:grid;place-items:center;gap:6px;width:74px;padding:18px 8px;
+  font-size:12px;font-weight:700;line-height:1.5;text-align:center;
+  background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.25);
+  transition:background .3s var(--ease);
+}
+.side-cta a:last-child{border-bottom:0;background:#0B4A78}
+.side-cta a:hover{background:var(--blue)}
+.side-cta svg{width:22px;height:22px;fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.to-top{
+  position:fixed;right:24px;bottom:24px;z-index:70;
+  display:grid;place-items:center;gap:2px;width:52px;height:52px;
+  background:var(--navy);color:#fff;border:0;cursor:pointer;font-family:inherit;
+  opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s;
+}
+.to-top.is-on{opacity:1;visibility:visible}
+.to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.to-top span{font-family:"Archivo",sans-serif;font-size:9px;letter-spacing:.1em}
+.sp-cta{display:none}
+
 /* ---------- responsive ---------- */
 @media (max-width:1000px){
   .hd__nav{display:none}
   .burger{margin-left:auto}
 }
 @media (max-width:900px){
+  .trust__grid{grid-template-columns:repeat(2,1fr)}
+  .assure{grid-template-columns:1fr;gap:18px}
+  .reason{grid-template-columns:70px 1fr;gap:18px;padding:28px 26px}
+  .icta{grid-template-columns:1fr;gap:24px}
   .ft__top{grid-template-columns:1fr;gap:36px;padding-bottom:34px}
   .ft__nav{grid-template-columns:repeat(3,1fr)}
   .works{grid-template-columns:repeat(2,1fr);gap:20px}
@@ -600,6 +708,23 @@ body.nav-open{overflow:hidden}
 }
 @media (max-width:768px){
   body{font-size:15px}
+  .side-cta{display:none}
+  .to-top{right:14px;bottom:88px;width:46px;height:46px}
+  .sp-cta{
+    display:grid;grid-template-columns:1fr 1.4fr;position:fixed;left:0;right:0;bottom:0;z-index:75;
+    transform:translateY(100%);transition:transform .35s var(--ease);
+  }
+  .sp-cta.is-on{transform:translateY(0)}
+  .sp-cta a{padding:16px 8px;text-align:center;font-size:14px;font-weight:700}
+  .sp-cta a:first-child{background:var(--pale);color:var(--navy)}
+  .sp-cta a:last-child{background:var(--navy);color:#fff}
+  .ft{padding:52px 0 92px}
+  .cmp__head,.cmp__row{grid-template-columns:1fr}
+  .cmp__row > *{border-top:1px solid var(--line)}
+  .cmp__head span{padding:12px 18px}
+  .growth__row{grid-template-columns:1fr;gap:8px}
+  .growth__v{text-align:left}
+  .trust__grid{gap:1px}
   .ft{padding:52px 0 26px}
   .ft__nav{grid-template-columns:repeat(2,1fr);gap:6px 20px}
   .ft__logo .logo__mark{width:30px;height:40px}
@@ -715,6 +840,35 @@ body.nav-open{overflow:hidden}
     </div>
   </section>
 
+
+  <!-- TRUST -->
+  <section class="trust obs" aria-label="実績サマリー">
+    <div class="wrap">
+      <div class="trust__grid stg">
+        <div class="trust__item">
+          <span class="trust__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.6"/><path d="M15.4 15.4L21 21"/><path d="M7.5 12.5v-2M10.5 12.5v-4M13.5 12.5v-6"/></svg></span>
+          <p class="trust__v"><span class="cnt" data-to="16">0</span><small>年</small></p>
+          <p class="trust__l">SEO実務歴</p>
+        </div>
+        <div class="trust__item">
+          <span class="trust__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 4h19v13h-19z"/><path d="M2.5 8h19"/><path d="M5 10.5h6v6.5H5z"/><path d="M13 10.5h6M13 13.5h6"/></svg></span>
+          <p class="trust__v"><span class="cnt" data-to="12">0</span><small>年</small></p>
+          <p class="trust__l">Web制作歴</p>
+        </div>
+        <div class="trust__item">
+          <span class="trust__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 2.5h9l5 5v9.5"/><path d="M5 2.5v19h6"/><path d="M14 2.5v5h5"/><path d="M7.5 8h4M7.5 11h7M7.5 14h5"/><circle cx="17" cy="17" r="3.2"/><path d="M15.4 19.8L15 23l2-1.2 2 1.2-.4-3.2"/></svg></span>
+          <p class="trust__v"><span class="cnt" data-to="1">0</span><small>級</small></p>
+          <p class="trust__l">SEO検定</p>
+        </div>
+        <div class="trust__item">
+          <span class="trust__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.5s6.5-6.1 6.5-10.5a6.5 6.5 0 10-13 0C5.5 15.4 12 21.5 12 21.5z"/><circle cx="12" cy="10.8" r="2.4"/></svg></span>
+          <p class="trust__v"><span class="cnt" data-to="47">0</span><small>都道府県</small></p>
+          <p class="trust__l">オンラインで全国対応</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ISSUE：背景英字スライドイン＋見出し1文字ずつ＋カード順次 -->
   <section class="sec obs" id="problem">
     <span class="deco deco--l" aria-hidden="true"></span>
@@ -763,6 +917,10 @@ body.nav-open{overflow:hidden}
           <p>何から手をつけるべきか<br>判断できない</p>
         </li>
       </ul>
+      <div class="note-box">
+        <span class="note-box__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6v3H9z"/><path d="M9 4.5H5.5v17h13v-17H15"/><path d="M8.5 11l1.2 1.2 2.6-2.8"/><path d="M8.5 16l1.2 1.2 2.6-2.8"/></svg></span>
+        <p>ひとつでも当てはまるなら、まずは<em>無料診断</em>で現状を確認するところから始められます。</p>
+      </div>
     </div>
   </section>
 
@@ -821,6 +979,46 @@ body.nav-open{overflow:hidden}
         </article>
 
       </div>
+      <div class="cmp">
+        <div class="cmp__head">
+          <span></span><span>GOOGLE検索</span><span class="is-ai">AI検索</span>
+        </div>
+        <div class="cmp__row">
+          <div class="cmp__k"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6L21 21"/></svg>返ってくるもの</div>
+          <div>10本のリンク</div>
+          <div class="cmp__ai">1つにまとまった答え</div>
+        </div>
+        <div class="cmp__row">
+          <div class="cmp__k"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg>選ぶのは誰か</div>
+          <div>ユーザーが選んで読む</div>
+          <div class="cmp__ai">AIが引用先を選ぶ</div>
+        </div>
+        <div class="cmp__row">
+          <div class="cmp__k"><svg viewBox="0 0 24 24"><path d="M3 20.5h18"/><rect x="5" y="12" width="3.4" height="6.5"/><rect x="10.3" y="8" width="3.4" height="10.5"/><rect x="15.6" y="14" width="3.4" height="4.5"/></svg>評価される軸</div>
+          <div>検索順位に入っているか</div>
+          <div class="cmp__ai">引用されるか</div>
+        </div>
+        <div class="cmp__row">
+          <div class="cmp__k"><svg viewBox="0 0 24 24"><path d="M12 2.5l8 3.2v6c0 5-3.4 8.7-8 9.8-4.6-1.1-8-4.8-8-9.8v-6z"/><path d="M8.8 12l2.2 2.2 4.2-4.6"/></svg>必要な対策</div>
+          <div>SEO</div>
+          <div class="cmp__ai">AIO・LLMO</div>
+        </div>
+      </div>
+      <div class="cmp-note"><span aria-hidden="true">!</span><p>AI検索では、引用されなければ存在しないのと同じになります。</p></div>
+
+      <div class="growth">
+        <div class="growth__row">
+          <p class="growth__l">支援開始<small>2023年8月</small></p>
+          <span class="growth__bar"><i style="--w:15%"></i></span>
+          <p class="growth__v">3万</p>
+        </div>
+        <div class="growth__row is-a">
+          <p class="growth__l">18ヶ月後<small>2025年2月</small></p>
+          <span class="growth__bar"><i style="--w:100%"></i></span>
+          <p class="growth__v">20万</p>
+        </div>
+      </div>
+      <p class="media__note">キーワードの選定、記事構成、外部ライターの進行管理、既存記事の改善までを担当しました。記事数を増やすのではなく、検索意図とサイト全体の役割を整理したうえで、優先順位をつけて改善しています。<br><br>2023年8月から18ヶ月間、企業オウンドメディア1媒体のSEOディレクションを担当した際の実績です。支援開始時点の月間セッション数は3万でした。記載の数値は同期間・同媒体の全データにもとづくもので、成果を保証するものではありません。</p>
     </div>
   </section>
 
@@ -883,6 +1081,57 @@ body.nav-open{overflow:hidden}
           <p>一時預かり・親子遊び広場・育児相談といった、利用者が探す情報へ最短で届く設計。活動報告を継続発信できる形にしています。</p>
         </li>
       </ul>
+      <div class="media">
+        <h3>執筆実績</h3>
+        <p class="media__sub">企業メディアへの寄稿記事（抜粋）</p>
+        <ul>
+          <li>BtoB・人材領域の企業オウンドメディア（記名なしの受託執筆）</li>
+          <li>マーケティング・SEO領域のオウンドメディア（記名なしの受託執筆）</li>
+          <li>記憶術・資格・教育系メディア（累計200記事以上）</li>
+        </ul>
+        <p class="media__note">媒体名と記事タイトルは、契約上の守秘のため掲載していません。医療、法律、金融、教育など、専門性の高いジャンルの執筆経験があります。実際の記事は、ご相談の場でお見せできる範囲で共有します。</p>
+      </div>
+      <div class="icta">
+        <p>自社サイトにも、改善できる余地があるか<br>確認しませんか。</p>
+        <a href="#contact" class="btn"><span class="btn__box"><span class="btn__t btn__t--top">無料で診断を依頼する</span><span class="btn__t btn__t--under">無料で診断を依頼する</span></span></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- REASON -->
+  <section class="sec sec--pale obs" id="reason">
+    <div class="wrap">
+      <div class="sec__head sec__head--center">
+        <h2 class="chars">選ばれている理由</h2>
+        <span class="head__rule" aria-hidden="true"></span>
+      </div>
+      <ul class="reasons stg">
+        <li class="reason">
+          <span class="reason__n">01</span>
+          <div><h3>窓口がひとつで完結する</h3><p>設計・デザイン・実装・SEO・記事まで同じ人間が担当します。「その件は別の担当に確認します」が発生しません。</p></div>
+        </li>
+        <li class="reason">
+          <span class="reason__n">02</span>
+          <div><h3>担当が最後まで変わらない</h3><p>営業と制作が分かれていないため、最初の打ち合わせで話した内容がそのまま形になります。</p></div>
+        </li>
+        <li class="reason">
+          <span class="reason__n">03</span>
+          <div><h3>提案の根拠を、数字と構造で説明する</h3><p>「なんとなく良さそう」で決めません。ユーザーの行動、検索ニーズ、競合の状況をもとに、なぜこの構成にするのかを説明します。</p></div>
+        </li>
+        <li class="reason">
+          <span class="reason__n">04</span>
+          <div><h3>公開後の運用まで伴走する</h3><p>更新方法の説明、アクセス解析の見方、記事の書き方まで共有します。自走できる状態を目標にします。</p></div>
+        </li>
+        <li class="reason">
+          <span class="reason__n">05</span>
+          <div><h3>限られた予算を、成果に近い順に配分する</h3><p>必要な施策を一度にすべて行うのではなく、効果と優先順位を整理して提案します。後回しにできるものは、最初の見積から外します。</p></div>
+        </li>
+      </ul>
+      <div class="icta">
+        <p>まずは、いまのサイトの課題を<br>相談するところから。</p>
+        <a href="#contact" class="btn"><span class="btn__box"><span class="btn__t btn__t--top">無料で相談する</span><span class="btn__t btn__t--under">無料で相談する</span></span></a>
+      </div>
     </div>
   </section>
 
@@ -954,6 +1203,34 @@ body.nav-open{overflow:hidden}
   </section>
 
   <!-- PLAN -->
+  <!-- ASSURANCE -->
+  <section class="sec obs" id="assure">
+    <div class="wrap">
+      <div class="sec__head sec__head--center">
+        <h2 class="chars">個人への依頼だからこそ、進め方を曖昧にしません。</h2>
+        <span class="head__rule" aria-hidden="true"></span>
+        <p class="sec__lead">ご契約前に、対応範囲・納期・費用・修正条件を書面で明確にします。制作中は工程ごとに内容をご確認いただき、承認後に次へ進みます。</p>
+      </div>
+      <div class="assure stg">
+        <div class="assure__item">
+          <span class="assure__n">01</span>
+          <h3>見積の内訳を明確にする</h3>
+          <p>何に、なぜ費用がかかるのかを説明します。不要だと判断した施策は見積に含めません。</p>
+        </div>
+        <div class="assure__item">
+          <span class="assure__n">02</span>
+          <h3>対応範囲を書面で決める</h3>
+          <p>作業範囲、納期、修正の条件を着手前に文書化します。後から範囲が曖昧になることを防ぎます。</p>
+        </div>
+        <div class="assure__item">
+          <span class="assure__n">03</span>
+          <h3>公開後の窓口を残す</h3>
+          <p>公開して終わりにせず、更新方法の共有と、その後の相談先としての窓口を維持します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="sec obs" id="price">
     <div class="wrap">
       <div class="sec__head">
@@ -1262,13 +1539,33 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01g</span>
+      <span>BUILD_TAG: 2026-09-01h</span>
     </div>
   </div>
 </footer>
 
+
+<div class="side-cta" aria-label="お問い合わせ導線">
+  <a href="#contact">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 5.5h17v13h-17z"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg>
+    無料で<br>サイト診断
+  </a>
+  <a href="#price">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 20.5h17"/><rect x="5" y="12" width="3.4" height="7"/><rect x="10.3" y="8" width="3.4" height="11"/><rect x="15.6" y="14" width="3.4" height="5"/></svg>
+    料金を<br>見る
+  </a>
+</div>
+<button class="to-top" id="toTop" type="button" aria-label="ページ上部へ戻る">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  <span>TOP</span>
+</button>
+<div class="sp-cta" id="spCta">
+  <a href="#price">料金を見る</a>
+  <a href="#contact">無料でサイト診断</a>
+</div>
+
 <script>
-console.log("BUILD_TAG: 2026-09-01g");
+console.log("BUILD_TAG: 2026-09-01h");
 
 (function(){
   "use strict";
@@ -1369,17 +1666,44 @@ console.log("BUILD_TAG: 2026-09-01g");
   var io = null;
 
   if (reduce || !("IntersectionObserver" in window)) {
-    targets.forEach(function(t){ t.classList.add("is-in"); });
+    targets.forEach(function(t){ t.classList.add("is-in"); runCount(t); });
   } else {
     io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
         if (e.isIntersecting) {
           e.target.classList.add("is-in");
+          runCount(e.target);
           io.unobserve(e.target);
         }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
     targets.forEach(function(t){ io.observe(t); });
+  }
+
+  /* トラストバーの数値カウントアップ */
+  function runCount(root){
+    root.querySelectorAll(".cnt").forEach(function(el){
+      if (el.dataset.done) return;
+      el.dataset.done = "1";
+      var to = parseInt(el.dataset.to, 10) || 0;
+      if (reduce) { el.textContent = to; return; }
+      var start = null, dur = 1100;
+      function step(t){
+        if (!start) start = t;
+        var r = Math.min((t - start) / dur, 1);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - r, 3)));
+        if (r < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  var toTop = document.getElementById("toTop");
+  var spCta = document.getElementById("spCta");
+  if (toTop) {
+    toTop.addEventListener("click", function(){
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
   }
 
   var ticking = false;
@@ -1390,6 +1714,8 @@ console.log("BUILD_TAG: 2026-09-01g");
       var y = window.scrollY;
 
       if (hd) hd.classList.toggle("is-scrolled", y > 20);
+      if (toTop) toTop.classList.toggle("is-on", y > 420);
+      if (spCta) spCta.classList.toggle("is-on", y > 420);
 
       if (bar) {
         var max = document.documentElement.scrollHeight - window.innerHeight;
