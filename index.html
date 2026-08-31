@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-09-01h -->
+<!-- BUILD_TAG: 2026-09-01i -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -600,24 +600,33 @@ body.nav-open{overflow:hidden}
 .note-box em{font-style:normal;font-weight:700;border-bottom:2px solid var(--gold)}
 
 /* ---------- 検索の比較表 ---------- */
-.cmp{margin-top:64px;border:1px solid var(--line)}
-.cmp__head,.cmp__row{display:grid;grid-template-columns:1.1fr 1fr 1fr}
-.cmp__head{background:var(--navy);color:#fff}
-.cmp__head span{padding:16px 20px;font-size:13.5px;letter-spacing:.06em;font-weight:700}
-.cmp__head .is-ai{color:var(--gold)}
+.cmp-wrap{margin-top:76px}
+.cmp-head{text-align:center;margin-bottom:34px}
+.cmp-head h3{font-size:clamp(23px,2.8vw,34px);font-weight:700;color:var(--navy);letter-spacing:.02em;line-height:1.5}
+.cmp-head h3 em{font-style:normal;color:var(--gold-ink)}
+.cmp-head__rule{display:block;width:88px;height:2px;background:var(--gold);margin:16px auto 20px}
+.cmp-head p{font-size:15px;color:var(--muted);line-height:1.9;max-width:60em;margin:0 auto}
+
+.cmp{border:1px solid var(--line);overflow:hidden}
+.cmp__head,.cmp__row{display:grid;grid-template-columns:1.1fr 1.5fr 1.4fr}
+.cmp__head span{padding:17px 24px;font-size:14px;letter-spacing:.06em;font-weight:700;text-align:center;background:var(--navy);color:#fff}
+.cmp__head .is-ai{background:#F6E8CE;color:var(--gold-ink)}
 .cmp__row{border-top:1px solid var(--line)}
-.cmp__row > *{padding:18px 20px;font-size:14.5px;line-height:1.7}
-.cmp__k{background:#F4F7F9;color:var(--navy);font-weight:700;display:flex;align-items:center;gap:12px}
-.cmp__k svg{flex:0 0 auto;width:20px;height:20px;fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.cmp__ai{background:#FBF7F0;color:var(--navy)}
+.cmp__row > *{padding:20px 24px;font-size:15px;line-height:1.7;color:var(--navy)}
+.cmp__k{background:#F6F8FA;font-weight:700;display:flex;align-items:center;gap:14px}
+.cmp__k svg{flex:0 0 auto;width:22px;height:22px;fill:none;stroke:var(--navy);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.cmp__ai{background:#FDFAF3}
+
 .cmp-note{
-  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
-  margin-top:18px;font-size:14px;color:var(--navy);
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  background:#FDF7EA;border:1px solid #EBDCC0;padding:22px 26px;margin-top:18px;
+  font-size:clamp(15px,1.7vw,18px);font-weight:700;color:var(--navy);text-align:center;line-height:1.7;
 }
-.cmp-note span{
-  display:grid;place-items:center;width:24px;height:24px;
-  background:var(--navy);color:#fff;font-size:14px;font-weight:700;
-}
+.cmp-note em{font-style:normal;color:var(--gold-ink)}
+.cmp-note__ico{flex:0 0 auto;width:28px;height:28px}
+.cmp-note__ico svg{width:100%;height:100%}
+.cmp-note__ico circle{fill:var(--navy)}
+.cmp-note__ico path{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------- 支援実績のグラフ ---------- */
 .growth{margin-top:64px;display:grid;gap:22px}
@@ -719,9 +728,12 @@ body.nav-open{overflow:hidden}
   .sp-cta a:first-child{background:var(--pale);color:var(--navy)}
   .sp-cta a:last-child{background:var(--navy);color:#fff}
   .ft{padding:52px 0 92px}
-  .cmp__head,.cmp__row{grid-template-columns:1fr}
-  .cmp__row > *{border-top:1px solid var(--line)}
-  .cmp__head span{padding:12px 18px}
+  .cmp__head{grid-template-columns:1fr 1fr;}
+  .cmp__head span:first-child{display:none}
+  .cmp__row{grid-template-columns:1fr}
+  .cmp__row > *{padding:14px 18px}
+  .cmp__row > *:not(.cmp__k){border-top:1px solid var(--line)}
+  .cmp-note{flex-direction:column;gap:12px;padding:20px}
   .growth__row{grid-template-columns:1fr;gap:8px}
   .growth__v{text-align:left}
   .trust__grid{gap:1px}
@@ -979,32 +991,42 @@ body.nav-open{overflow:hidden}
         </article>
 
       </div>
-      <div class="cmp">
-        <div class="cmp__head">
-          <span></span><span>GOOGLE検索</span><span class="is-ai">AI検索</span>
+      <div class="cmp-wrap">
+        <div class="cmp-head">
+          <h3>Google検索と<em>AI検索</em>の違い</h3>
+          <span class="cmp-head__rule" aria-hidden="true"></span>
+          <p>検索で見つけてもらう方法は、従来のGoogle検索だけではありません。AI検索では「上位表示」に加えて「引用されること」も重要になります。</p>
+        </div>
+        <div class="cmp">
+          <div class="cmp__head">
+            <span>比較ポイント</span><span>GOOGLE検索</span><span class="is-ai">AI検索</span>
+          </div>
+        <div class="cmp__row">
+          <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.6"/><path d="M15.4 15.4L21 21"/></svg>返ってくるもの</div>
+          <div>複数の候補ページ</div>
+          <div class="cmp__ai">要点がまとまった回答</div>
         </div>
         <div class="cmp__row">
-          <div class="cmp__k"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.6 15.6L21 21"/></svg>返ってくるもの</div>
-          <div>10本のリンク</div>
-          <div class="cmp__ai">1つにまとまった答え</div>
+          <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.6" r="3.6"/><path d="M4.5 20.5c0-3.7 3.4-6.2 7.5-6.2s7.5 2.5 7.5 6.2"/></svg>誰が選ぶか</div>
+          <div>ユーザーが自分で選んで読む</div>
+          <div class="cmp__ai">AIが参照先を選んで要約する</div>
         </div>
         <div class="cmp__row">
-          <div class="cmp__k"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20.5c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg>選ぶのは誰か</div>
-          <div>ユーザーが選んで読む</div>
-          <div class="cmp__ai">AIが引用先を選ぶ</div>
+          <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20.5h18"/><rect x="5" y="12" width="3.4" height="6.5"/><rect x="10.3" y="8" width="3.4" height="10.5"/><rect x="15.6" y="14" width="3.4" height="4.5"/></svg>何が評価されるか</div>
+          <div>上位表示されるか・クリックされるか</div>
+          <div class="cmp__ai">回答の中で引用・参照されるか</div>
         </div>
         <div class="cmp__row">
-          <div class="cmp__k"><svg viewBox="0 0 24 24"><path d="M3 20.5h18"/><rect x="5" y="12" width="3.4" height="6.5"/><rect x="10.3" y="8" width="3.4" height="10.5"/><rect x="15.6" y="14" width="3.4" height="4.5"/></svg>評価される軸</div>
-          <div>検索順位に入っているか</div>
-          <div class="cmp__ai">引用されるか</div>
-        </div>
-        <div class="cmp__row">
-          <div class="cmp__k"><svg viewBox="0 0 24 24"><path d="M12 2.5l8 3.2v6c0 5-3.4 8.7-8 9.8-4.6-1.1-8-4.8-8-9.8v-6z"/><path d="M8.8 12l2.2 2.2 4.2-4.6"/></svg>必要な対策</div>
+          <div class="cmp__k"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l8 3.2v6c0 5-3.4 8.7-8 9.8-4.6-1.1-8-4.8-8-9.8v-6z"/><path d="M8.8 12l2.2 2.2 4.2-4.6"/></svg>必要な対策</div>
           <div>SEO</div>
           <div class="cmp__ai">AIO・LLMO</div>
         </div>
+        </div>
+        <div class="cmp-note">
+          <span class="cmp-note__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="M7.4 12.3l3.1 3.1 6.1-6.6"/></svg></span>
+          <p>これからは <em>SEO</em> と <em>AIO</em> の両方を見据えた設計が必要です。</p>
+        </div>
       </div>
-      <div class="cmp-note"><span aria-hidden="true">!</span><p>AI検索では、引用されなければ存在しないのと同じになります。</p></div>
 
       <div class="growth">
         <div class="growth__row">
@@ -1539,7 +1561,7 @@ body.nav-open{overflow:hidden}
     <div class="ft__bottom">
       <span>&copy; INFOSUCCESS</span>
       <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-      <span>BUILD_TAG: 2026-09-01h</span>
+      <span>BUILD_TAG: 2026-09-01i</span>
     </div>
   </div>
 </footer>
@@ -1565,7 +1587,7 @@ body.nav-open{overflow:hidden}
 </div>
 
 <script>
-console.log("BUILD_TAG: 2026-09-01h");
+console.log("BUILD_TAG: 2026-09-01i");
 
 (function(){
   "use strict";
