@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- BUILD_TAG: 2026-08-31j -->
+<!-- BUILD_TAG: 2026-08-31k -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ホームページ制作・SEO・AI検索対策（AIO・LLMO） | インフォサクセス</title>
@@ -172,6 +172,36 @@ ul,ol{list-style:none}
 .hero__meta{
   margin-top:64px;padding-top:26px;border-top:1px solid var(--line);
   display:flex;flex-wrap:wrap;gap:12px 40px;font-size:13px;color:var(--muted);
+}
+
+
+/* ---------- スクロール進捗バー ---------- */
+.progress{
+  position:fixed;top:0;left:0;width:100%;height:2px;z-index:300;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  will-change:transform;
+}
+
+/* ---------- ヒーロー背景の縦罫線（視差） ---------- */
+.hero{position:relative}
+.hero__lines{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.hero__lines i{
+  position:absolute;top:-20%;width:1px;height:140%;
+  background:var(--line);will-change:transform;
+}
+.hero .wrap{position:relative;z-index:1}
+
+/* ---------- 濃紺セクションの背景矩形（ゆっくり往復） ---------- */
+.sec--navy,.contact{position:relative}
+.slab{
+  position:absolute;pointer-events:none;
+  border:1px solid rgba(255,255,255,.10);
+}
+.slab--a{width:300px;height:300px;top:-90px;right:-70px;animation:drift 26s ease-in-out infinite}
+.slab--b{width:190px;height:190px;bottom:-60px;left:-50px;animation:drift 34s ease-in-out infinite reverse}
+@keyframes drift{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(-26px,22px,0)}
 }
 
 /* ---------- section ---------- */
@@ -391,6 +421,8 @@ ul,ol{list-style:none}
   .bgtext{opacity:.08 !important;transform:none !important}
   .sv__media::after{transform:scaleX(0) !important}
   .sv__inner{transform:none !important}
+  .slab{animation:none !important}
+  .hero__lines i{transform:none !important}
 }
 </style>
 <script type="application/ld+json">
@@ -400,6 +432,7 @@ ul,ol{list-style:none}
 <body>
 
 <a class="skip" href="#main">本文へスキップ</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="hd" id="hd">
   <div class="hd__in">
@@ -420,6 +453,12 @@ ul,ol{list-style:none}
 
   <!-- HERO：LCP要素のためアニメーションを一切かけていない -->
   <section class="hero" id="hero">
+    <div class="hero__lines" aria-hidden="true">
+      <i style="left:14%" data-speed="0.10"></i>
+      <i style="left:37%" data-speed="0.18"></i>
+      <i style="left:61%" data-speed="0.07"></i>
+      <i style="left:84%" data-speed="0.14"></i>
+    </div>
     <div class="wrap">
       <div class="hero__body">
           <h1>作るだけで終わらない。<br><em class="ac">見つけてもらい、選ばれる</em>Webへ。</h1>
@@ -569,6 +608,8 @@ ul,ol{list-style:none}
 
   <!-- FLOW：順序があるので番号を使う -->
   <section class="sec sec--navy obs" id="flow">
+    <div class="slab slab--a" aria-hidden="true"></div>
+    <div class="slab slab--b" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Flow</div>
@@ -782,6 +823,8 @@ ul,ol{list-style:none}
 
   <!-- CONTACT -->
   <section class="contact obs" id="contact">
+    <div class="slab slab--a" aria-hidden="true"></div>
+    <div class="slab slab--b" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec__head">
         <div class="bgtext" aria-hidden="true">Contact</div>
@@ -856,31 +899,63 @@ ul,ol{list-style:none}
   <div class="wrap ft__row">
     <p>モーション検証用デモ ／ インフォサクセス</p>
     <button class="replay" id="replay" type="button">動きをもう一度再生する</button>
-    <span class="tag">BUILD_TAG: 2026-08-31j</span>
+    <span class="tag">BUILD_TAG: 2026-08-31k</span>
   </div>
 </footer>
 
 <script>
-console.log("BUILD_TAG: 2026-08-31j");
+console.log("BUILD_TAG: 2026-08-31k");
 
 (function(){
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  "use strict";
 
-  /* 見出しを1文字ずつspanに分解する */
+  var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var reduce = mq.matches;
+
+  /* ============================================================
+     1. 対話的な機能（動きの設定に関係なく必ず動かす）
+     ============================================================ */
+
+  /* FAQの開閉 */
+  document.querySelectorAll(".faq__q").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      var panel = document.getElementById(btn.getAttribute("aria-controls"));
+      if (panel) panel.setAttribute("data-open", String(!open));
+    });
+  });
+
+  /* フォーム送信（デモのため実際には送信しない） */
+  var form = document.getElementById("contactForm");
+  var done = document.getElementById("formDone");
+  if (form && done) {
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      form.hidden = true;
+      done.hidden = false;
+      done.setAttribute("tabindex", "-1");
+      done.focus();
+    });
+  }
+
+  /* ============================================================
+     2. 見出しの文字分解（表示のための下準備）
+     ============================================================ */
+
   document.querySelectorAll(".chars").forEach(function(el){
     var text = el.textContent;
     el.textContent = "";
 
-    /* 読み上げ用に元の文字列を残す */
     var sr = document.createElement("span");
     sr.className = "sr-only";
     sr.textContent = text;
     el.appendChild(sr);
 
-    /* 表示用は1文字ずつに分解し、読み上げ対象から外す */
     var anim = document.createElement("span");
     anim.setAttribute("aria-hidden", "true");
-    Array.from(text).forEach(function(c,i){
+    Array.from(text).forEach(function(c, i){
       var sp = document.createElement("span");
       sp.className = "ch";
       sp.textContent = (c === " ") ? "\u00a0" : c;
@@ -890,72 +965,74 @@ console.log("BUILD_TAG: 2026-08-31j");
     el.appendChild(anim);
   });
 
-  /* 順次表示の遅延を子要素に配る */
   document.querySelectorAll(".stg").forEach(function(list){
-    Array.from(list.children).forEach(function(child,i){
+    Array.from(list.children).forEach(function(child, i){
       child.style.setProperty("--d", (i * 0.09) + "s");
     });
   });
 
+  /* ============================================================
+     3. スクロール連動
+     ============================================================ */
+
   var targets = document.querySelectorAll(".obs");
+  var hd = document.getElementById("hd");
+  var bar = document.getElementById("progress");
+  var lines = document.querySelectorAll(".hero__lines i");
+  var io = null;
 
   if (reduce || !("IntersectionObserver" in window)) {
     targets.forEach(function(t){ t.classList.add("is-in"); });
-    return;
+  } else {
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+    targets.forEach(function(t){ io.observe(t); });
   }
 
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        e.target.classList.add("is-in");
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-
-  targets.forEach(function(t){ io.observe(t); });
-
-  /* ヘッダーの背景切り替え */
-  var hd = document.getElementById("hd");
   var ticking = false;
-  window.addEventListener("scroll", function(){
+  function onScroll(){
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(function(){
-      hd.classList.toggle("is-scrolled", window.scrollY > 20);
+      var y = window.scrollY;
+
+      if (hd) hd.classList.toggle("is-scrolled", y > 20);
+
+      if (bar) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+      }
+
+      /* ヒーローの縦罫線をゆっくり視差移動させる */
+      if (!reduce && lines.length && y < window.innerHeight * 1.4) {
+        for (var i = 0; i < lines.length; i++) {
+          var speed = parseFloat(lines[i].dataset.speed || "0.1");
+          lines[i].style.transform = "translate3d(0," + (y * speed) + "px,0)";
+        }
+      }
+
       ticking = false;
     });
-  }, { passive: true });
-
-  /* FAQの開閉 */
-  document.querySelectorAll(".faq__q").forEach(function(btn){
-    btn.addEventListener("click", function(){
-      var open = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!open));
-      document.getElementById(btn.getAttribute("aria-controls"))
-              .setAttribute("data-open", String(!open));
-    });
-  });
-
-  /* フォーム送信（デモのため実際には送信しない） */
-  var form = document.getElementById("contactForm");
-  var done = document.getElementById("formDone");
-  if (form) {
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      form.hidden = true;
-      done.hidden = false;
-      done.setAttribute("tabindex","-1");
-      done.focus();
-    });
   }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
   /* 検証用：もう一度先頭から再生する */
-  document.getElementById("replay").addEventListener("click", function(){
-    targets.forEach(function(t){ t.classList.remove("is-in"); io.observe(t); });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  var replay = document.getElementById("replay");
+  if (replay) {
+    replay.addEventListener("click", function(){
+      if (io) {
+        targets.forEach(function(t){ t.classList.remove("is-in"); io.observe(t); });
+      }
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+  }
 })();
 </script>
 </body>
